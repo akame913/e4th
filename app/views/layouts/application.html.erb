@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="Keywords" content="品川区立, 荏原第四中学校, 同期会, 
+                                　1969年卒業, 昭和44年卒業">
+    <meta name="Description" content="荏原四中同期会有志のWebサイトです。">
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag "application", media: "all",
                                            "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
   </head>
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
-
