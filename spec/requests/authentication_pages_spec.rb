@@ -20,6 +20,7 @@ describe "Authentication" do
       before { click_button "Sign in" }
 
       it { should have_title('Sign in') }
+      it { should have_selector('div.alert.alert-error', text: 'Invalid') }
 
       describe "after visiting another page" do
         before { click_link "Home" }
@@ -55,7 +56,7 @@ describe "Authentication" do
       describe "when attempting to visit a protected page" do
         before do
           visit edit_user_path(user)
-          fill_in "Email",    with: user.email
+          fill_in "Name",    with: user.name
           fill_in "Password", with: user.password
           click_button "Sign in"
         end
@@ -70,7 +71,7 @@ describe "Authentication" do
             before do
               delete signout_path
               visit signin_path
-              fill_in "Email",    with: user.email
+              fill_in "Name",    with: user.name
               fill_in "Password", with: user.password
               click_button "Sign in"
             end
@@ -103,7 +104,7 @@ describe "Authentication" do
 
     describe "as wrong user" do
       let(:user) { FactoryGirl.create(:user) }
-      let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
+      let(:wrong_user) { FactoryGirl.create(:user, name: "wrong name") }
       before { sign_in user, no_capybara: true }
 
       describe "submitting a GET request to the Users#edit action" do

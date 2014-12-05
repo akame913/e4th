@@ -12,9 +12,9 @@ describe "Static pages" do
     it { should have_title(full_title('')) }
     it { should_not have_title('| Home') }
 
-    #describe "for signed-in users" do
-    #  let(:user) { FactoryGirl.create(:user) }
-    #  before do
+    describe "for signed-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+      before do
     #    FactoryGirl.create(:document, user: user, name: "Name1",
     #                          description: "Des1",
     #                          data: "Data1",
@@ -23,16 +23,16 @@ describe "Static pages" do
     #                          description: "Des2",
     #                          data: "Data2",
     #                          content_type: "text/plain")
-    #    sign_in user
-    #    visit root_path
-    #  end
+        sign_in user
+        visit root_path
+      end
 
     #  it "should render the user's document" do
     #    user.documents.each do |item|
     #      expect(page).to have_link("Download")
     #    end
     #  end
-    #end
+    end
   end
 
   describe "Help page" do
@@ -49,18 +49,18 @@ describe "Static pages" do
     it { should have_title(full_title('About')) }
   end
 
-  #it "should have the right links on the layout" do
-  #  visit root_path
-  #  click_link "About"
-  #  expect(page).to have_title(full_title('About Us'))
-  #  click_link "Help"
-  #  expect(page).to have_title(full_title('Help'))
-  #  click_link "Home"
-  #  click_link "Sign in now!"
-  #  expect(page).to have_title(full_title('Sign in'))
+  it "should have the right links on the layout" do
+    visit root_path
+    click_link "About"
+    expect(page).to have_title(full_title('About'))
+    click_link "Help"
+    expect(page).to have_title(full_title('Help'))
+    click_link "Home"
+    click_link "Sign in now!"
+    expect(page).to have_title(full_title('Sign in'))
   #  click_link "Documents"
   #  expect(page).to have_title(full_title('All documents'))
     #click_link "kame docs"
     #expect(page).to # ここにコードを記入
-  #end  
+  end  
 end
