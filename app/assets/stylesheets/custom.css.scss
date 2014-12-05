@@ -246,23 +246,71 @@ aside {
   }
 }
 
-/* class_list */
-.class_list{
-  overflow: auto;
-  margin-top: 1em;
-  border-bottom: 1px dotted #77d;
-  min-height: 360px;
-
+/* album */
+.album{
   img {
-    width:50%;
+    width:100%;
   }
+}
 
-  h3 {
-    font-size: 120%;
-    font-family: sans-serif;
-    margin-left: 400px;
-    margin-top: 0;
-    margin-bottom: 2px;
-    color: #227;
-  }
+/*------------------------------------------------
+   album
+------------------------------------------------*/
+#albumList{
+}
+
+#albumList article{
+position:relative;
+margin:0 0 15px 0;
+}
+
+#albumList article:last-child{
+margin:0;
+}
+
+#albumList article section{
+padding:0 0 24px 0;
+}
+
+#albumList article section p{
+font-size:1.0em;
+line-height:1.6;
+}
+
+#albumList article section p:after{
+content:"";
+display:block;
+clear:both;
+}
+
+#albumList article section p img{
+float:center;
+width:600px;
+margin:0 10px 6px 0;
+}
+
+/*
+#albumList article .btn{
+position:absolute;
+right:0;
+bottom:0;
+}
+*/
+
+/*------------------------------------------------
+   Blue button
+------------------------------------------------*/
+#contents .bluebtn{
+display:block;
+width:68px;
+height:18px;
+padding:0 0 0 22px;
+font-size:10px;
+color:#fff;
+text-decoration:none;
+line-height:18px;
+background:#09c url(../img/all_arw02r.png) no-repeat 6px 3px;
+-webkit-background-size:11px;
+background-size:11px;
+border-radius:3px;
 }
