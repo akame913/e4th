@@ -10,21 +10,21 @@
 
 require "csv"
 
-CSV.foreach('db/31seeds.csv') do |row|
-  User.create(:name   => row[1], 
-              :family => row[2], 
-              :given  => row[3], 
-              :maiden => row[4], 
-              :pobox  => row[5], 
-              :region => row[6], 
-              :city   => row[7], 
-              :street => row[8], 
-              :tel    => row[9], 
-              :mobile => row[10], 
-              :notes  => row[11], 
-              :email  => row[12], 
-              :password => row[13], 
-              :password_confirmation => row[13], 
-              :admin => true)
+CSV.foreach('db/seed.csv') do |row|
+  User.create(:name   => row[4], 
+              :family => row[5], 
+              :given  => row[6], 
+              :maiden => row[7], 
+              :pobox  => row[8], 
+              :region => row[9], 
+              :city   => row[10], 
+              :street => row[11], 
+              :tel    => row[12], 
+              :mobile => row[13], 
+              :notes  => row[14], 
+              :email  => row[15], 
+              :password => row[16], 
+              :password_confirmation => row[16], 
+              :admin => row[17])
 end
 

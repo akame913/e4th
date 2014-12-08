@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :signed_in_user,
-                only: [:index, :edit, :update, :destroy]
+                only: [:index, :edit, :update, :destroy, :find]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
       
@@ -46,7 +46,13 @@ class UsersController < ApplicationController
     flash[:success] = "User destroyed."
     redirect_to users_url
   end
-    
+
+  def find
+    @class = params[:fstr]
+    fstr = params[:fstr]
+    @users = User.where("name like ?","%" + fstr + "%")
+  end    
+
   private
 
     def user_params

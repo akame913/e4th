@@ -49,17 +49,8 @@ describe "Static pages" do
     it { should have_title(full_title('About')) }
   end
 
-  describe "Album page" do
-    before { visit album_path }
-
-    it { should have_content('Album') }
-    it { should have_title(full_title('Album')) }
-  end
-
   it "should have the right links on the layout" do
     visit root_path
-    click_link "Album"
-    expect(page).to have_title(full_title('Album'))
     click_link "About"
     expect(page).to have_title(full_title('About'))
     click_link "Help"

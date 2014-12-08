@@ -1,17 +1,34 @@
-<div class="center hero-unit">
 
 <% if signed_in? %>
-  <h1>お知らせ</h1>
-  <h2>荏原四中同期会からのお知らせです。</h2>
-  <p>次回同期会</P>
-  <p>日時：２０１５年３月７日（土）午後２時〜</p>
-  <p>場所：荏原第５地域センター</p>
+  <div class="center hero-unit">
+    <h1>お知らせ</h1>
+    <h2>荏原四中同期会からのお知らせです。</h2>
+    <p>次回同期会</P>
+    <p>日時：２０１５年３月７日（土）午後２時〜</p>
+    <p>場所：荏原第５地域センター</p>
+  </div>
+  <h2>2014年12月6日（土）幹事会報告</h2>
+  <dl>
+    <dt>前回出席</dt>
+      <dd>
+        回答数：106名</br>
+        出席者：59名
+      </dd>
+    <dt>案内状</dt>
+      <dd>
+        回答締切：2015年1月31日</br>
+      </dd>
+    <dt>最終幹事会</dt>
+      <dd>
+        2015年2月21日 場所等は別途連絡
+      </dd>
+  </dl>  
 <% else %>
+  <div class="center hero-unit">
     <h1>Ebara 4thへようこそ</h1>
     <h2>
       本ページは品川区立荏原四中1969年卒業同期会有志が運営しています。
     </h2>
     <%= link_to "Sign in now!", signin_path, class: "btn btn-large btn-primary" %>
+  </div>
 <% end %>
-
-</div>
