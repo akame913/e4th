@@ -10,7 +10,7 @@ describe "Static pages" do
 
     it { should have_content('Ebara 4th') }
     it { should have_title(full_title('')) }
-    it { should_not have_title('| Home') }
+    it { should_not have_title('| ホーム') }
 
     describe "for signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
@@ -38,26 +38,26 @@ describe "Static pages" do
   describe "Help page" do
     before { visit help_path }
 
-    it { should have_content('Help') }
-    it { should have_title(full_title('Help')) }
+    it { should have_content('ヘルプ') }
+    it { should have_title(full_title('ヘルプ')) }
   end
 
   describe "About page" do
     before { visit about_path }
 
-    it { should have_content('About') }
-    it { should have_title(full_title('About')) }
+    it { should have_content('サイト概要') }
+    it { should have_title(full_title('サイト概要')) }
   end
 
   it "should have the right links on the layout" do
     visit root_path
-    click_link "About"
-    expect(page).to have_title(full_title('About'))
-    click_link "Help"
-    expect(page).to have_title(full_title('Help'))
-    click_link "Home"
-    click_link "Sign in now!"
-    expect(page).to have_title(full_title('Sign in'))
+    click_link "サイト概要"
+    expect(page).to have_title(full_title('サイト概要'))
+    click_link "ヘルプ"
+    expect(page).to have_title(full_title('ヘルプ'))
+    click_link "ホーム"
+    click_link "サインインしてください!"
+    expect(page).to have_title(full_title('サインイン'))
   #  click_link "Documents"
   #  expect(page).to have_title(full_title('All documents'))
     #click_link "kame docs"

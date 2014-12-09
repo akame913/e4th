@@ -19,6 +19,6 @@ def sign_in(user, options={})
     visit signin_path
     fill_in "Name",    with: user.name
     fill_in "Password", with: user.password
-    click_button "Sign in"
+    click_button "サインイン"
   end
 end

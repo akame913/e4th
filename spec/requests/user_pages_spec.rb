@@ -14,8 +14,8 @@ describe "User pages" do
       visit users_path
     end
 
-    it { should have_title('All users') }
-    it { should have_content('All users') }
+    it { should have_title('名簿') }
+    it { should have_content('名簿') }
 
     describe "pagination" do
 
@@ -26,7 +26,7 @@ describe "User pages" do
 
       it "should list each user" do
         User.paginate(page: 1).each do |user|
-          expect(page).to have_selector('li', text: user.given)
+          expect(page).to have_selector('tr', text: user.given)
         end
       end
     end
@@ -65,15 +65,15 @@ describe "User pages" do
   describe "new user page" do
     before { visit new_user_path }
 
-    it { should have_content('New user') }
-    it { should have_title(full_title('New user')) }
+    it { should have_content('名簿追加') }
+    it { should have_title(full_title('名簿追加')) }
   end
 
   describe "new user" do
 
     before { visit new_user_path }
 
-    let(:submit) { "Create new user" }
+    let(:submit) { "名簿追加" }
 
     describe "with invalid information" do
       it "should not create a user" do
@@ -83,27 +83,27 @@ describe "User pages" do
       describe "after submission" do
         before { click_button submit }
 
-        it { should have_title('New user') }
+        it { should have_title('名簿追加') }
         it { should have_content('error') }
       end
     end
 
     describe "with valid information" do
       before do
-        fill_in "Name",         with: "Example User"
-        fill_in "Family",       with: "Example Family"
-        fill_in "Given",        with: "Example Given"
-        fill_in "Maiden",       with: "Example Maiden"
-        fill_in "Pobox",        with: "Example Pobox"
-        fill_in "Region",       with: "Example Region"
-        fill_in "City",         with: "Example City"
-        fill_in "Street",       with: "Example Street"
-        fill_in "Tel",          with: "Example Tel"
-        fill_in "Mobile",       with: "Example Mobile"
-        fill_in "Notes",        with: "Example Notes"
-        fill_in "Email",        with: "user@example.com"
-        fill_in "Password",     with: "foobar"
-        fill_in "Confirmation", with: "foobar"
+        fill_in "登録名",         with: "Example User"
+        fill_in "姓",             with: "Example Family"
+        fill_in "名",             with: "Example Given"
+        fill_in "新姓",           with: "Example Maiden"
+        fill_in "郵便番号",       with: "Example Pobox"
+        fill_in "都道府県",       with: "Example Region"
+        fill_in "市区",           with: "Example City"
+        fill_in "町村番地・ビル", with: "Example Street"
+        fill_in "電話番号",       with: "Example Tel"
+        fill_in "携帯番号",       with: "Example Mobile"
+        fill_in "備考",           with: "Example Notes"
+        fill_in "メールアドレス", with: "user@example.com"
+        fill_in "パスワード",     with: "foobar"
+        fill_in "確認パスワード", with: "foobar"
       end
 
       it "should create a user" do
@@ -114,7 +114,7 @@ describe "User pages" do
         before { click_button submit }
         let(:user) { User.find_by(name: 'Example User') }
 
-        it { should have_link('Sign out') }
+        it { should have_link('サインアウト') }
         it { should have_title(user.name) }
       end
     end
@@ -128,13 +128,12 @@ describe "User pages" do
     end
 
     describe "page" do
-      it { should have_content("Update your profile") }
-      it { should have_title("Edit user") }
-      it { should have_link('change', href: 'http://gravatar.com/emails') }
+      it { should have_content("プロフィール編集") }
+      it { should have_title("編集") }
     end
 
     describe "with invalid information" do
-      before { click_button "Save changes" }
+      before { click_button "編集保存" }
 
       it { should have_content('error') }
     end
@@ -143,15 +142,15 @@ describe "User pages" do
       let(:new_name)  { "New Name" }
       let(:new_email) { "new@example.com" }
       before do
-        fill_in "Name",             with: new_name
-        fill_in "Email",            with: new_email
-        fill_in "Password",         with: user.password
-        fill_in "Confirm Password", with: user.password
-        click_button "Save changes"
+        fill_in "登録名",             with: new_name
+        fill_in "メールアドレス",            with: new_email
+        fill_in "パスワード",         with: user.password
+        fill_in "確認パスワード", with: user.password
+        click_button "編集保存"
       end
 
       it { should have_title(new_name) }
-      it { should have_link('Sign out', href: signout_path) }
+      it { should have_link('サインアウト', href: signout_path) }
       specify { expect(user.reload.name).to  eq new_name }
       specify { expect(user.reload.email).to eq new_email }
     end

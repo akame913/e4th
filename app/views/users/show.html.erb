@@ -1,22 +1,25 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= @user.name %>
-      </h1>
-      <span>
+<div class="row-fluid">
+  <h1>
+    <%= @user.name %>
+  </h1>
+  <table class="commonTable">
+    <tr>
+      <th>名前</th>
+      <td>
         <% if @user.maiden %>
           <%= @user.maiden %>&nbsp;<%= @user.given %>（<%= @user.family %>）
         <% else %>
           <%= @user.family %>&nbsp;<%= @user.given %>
         <% end %>
-      </span>
-      <%= @user.notes %>
-    </section>
-  </aside>
-  
-  <table class="commonTable">
+      </td>
+    </tr>
+    <tr>
+      <th>備考</th>
+      <td>
+        <%= @user.notes %>
+      </td>
+    </tr>
     <tr>
       <th>郵便番号</th>
       <td>
@@ -42,25 +45,5 @@
       <td><%= @user.email %></td>
     </tr>
   </table>
- 
-<!--   
-  <div class="span8">
-    <dl>
-    <dt>住所</dt>
-      <dd><%= @user.pobox %></dd>
-      <dd><%= @user.region %><%= @user.city %><%= @user.street %></dd>
-    <dt>電話</dt>
-      <dd><%= @user.tel %></dd>
-    <% if @user.mobile %>
-      <dt>携帯</dt>
-        <dd><%= @user.mobile %></dd>
-    <% end %>
-    <dt>メール</dt>
-      <dd><%= @user.email %></dd>
-    <dt>メモ</dt>
-      <dd><%= @user.notes %></dd>
-    </dl>
-  </div>
--->
 </div>
 

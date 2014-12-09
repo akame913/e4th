@@ -1,32 +1,33 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-     <%= link_to "荏原四中同期会", root_path, id: "logo"  %>
+<!-- <header class="navbar navbar-fixed-top navbar-inverse"> -->
+<header class="navbar navbar-inverse">
+   <div class="navbar-inner">
+    <div class="container-fluid">
+     <%= link_to "荏原四中", root_path, id: "logo"  %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home",      root_path %></li>
-          <li><%= link_to "Help",      help_path %></li>
+          <li><%= link_to "ホーム",      root_path %></li>
+          <li><%= link_to "ヘルプ",      help_path %></li>
           <% if signed_in? %>
-            <li><%= link_to "Album",     album_path %></li>
+            <li><%= link_to "アルバム",     album_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
+                アカウント <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li><%= link_to "プロフィール", current_user %></li>
+                <li><%= link_to "編集", edit_user_path(current_user) %></li>
                 <% if current_user.admin? %>
-                  <li><%= link_to "Users", users_path %></li>
-                  <li><%= link_to "New user", new_user_path %></li>
+                  <li><%= link_to "名簿", users_path %></li>
+                  <li><%= link_to "名簿追加", new_user_path %></li>
                 <% end %>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
+                  <%= link_to "サインアウト", signout_path, method: "delete" %>
                 </li>
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%= link_to "サインイン", signin_path %></li>
           <% end %>
         </ul>
       </nav>

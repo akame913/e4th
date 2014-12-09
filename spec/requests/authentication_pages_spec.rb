@@ -9,21 +9,21 @@ describe "Authentication" do
   describe "signin page" do
     before { visit signin_path }
 
-    it { should have_content('Sign in') }
-    it { should have_title('Sign in') }
+    it { should have_content('サインイン') }
+    it { should have_title('サインイン') }
   end
 
   describe "signin" do
     before { visit signin_path }
 
     describe "with invalid information" do
-      before { click_button "Sign in" }
+      before { click_button "サインイン" }
 
-      it { should have_title('Sign in') }
+      it { should have_title('サインイン') }
       it { should have_selector('div.alert.alert-error', text: 'Invalid') }
 
       describe "after visiting another page" do
-        before { click_link "Home" }
+        before { click_link "ホーム" }
         it { should_not have_selector('div.alert.alert-error') }
       end
     end
@@ -33,16 +33,16 @@ describe "Authentication" do
       before { sign_in admin }
 
       it { should have_title(admin.name) }
-      it { should have_link('Profile',     href: user_path(admin)) }
-      it { should have_link('Settings',    href: edit_user_path(admin)) }
-      it { should have_link('Users',       href: users_path) }
-      it { should have_link('New user',    href: new_user_path) }
-      it { should have_link('Sign out',    href: signout_path) }
-      it { should_not have_link('Sign in', href: signin_path) }
+      it { should have_link('プロフィール',   href: user_path(admin)) }
+      it { should have_link('編集',           href: edit_user_path(admin)) }
+      it { should have_link('名簿',           href: users_path) }
+      it { should have_link('名簿追加',       href: new_user_path) }
+      it { should have_link('サインアウト',   href: signout_path) }
+      it { should_not have_link('サインイン', href: signin_path) }
 
       describe "followed by signout" do
-        before { click_link "Sign out" }
-        it { should have_link('Sign in') }
+        before { click_link "サインアウト" }
+        it { should have_link('サインイン') }
       end
     end
 
@@ -56,24 +56,24 @@ describe "Authentication" do
       describe "when attempting to visit a protected page" do
         before do
           visit edit_user_path(user)
-          fill_in "Name",    with: user.name
+          fill_in "Name",     with: user.name
           fill_in "Password", with: user.password
-          click_button "Sign in"
+          click_button "サインイン"
         end
 
         describe "after signing in" do
 
           it "should render the desired protected page" do
-            expect(page).to have_title('Edit user')
+            expect(page).to have_title('編集')
           end
 
           describe "when signing in again" do
             before do
               delete signout_path
               visit signin_path
-              fill_in "Name",    with: user.name
+              fill_in "Name",     with: user.name
               fill_in "Password", with: user.password
-              click_button "Sign in"
+              click_button "サインイン"
             end
 
             it "should render the default (profile) page" do
@@ -87,7 +87,7 @@ describe "Authentication" do
 
         describe "visiting the edit page" do
           before { visit edit_user_path(user) }
-          it { should have_title('Sign in') }
+          it { should have_title('サインイン') }
         end
 
         describe "submitting to the update action" do
@@ -97,7 +97,7 @@ describe "Authentication" do
 
         describe "visiting the user index" do
           before { visit users_path }
-          it { should have_title('Sign in') }
+          it { should have_title('サインイン') }
         end
       end
     end

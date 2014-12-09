@@ -1,10 +1,8 @@
-<% provide(:title, 'All users') %>
-<h1>All users</h1>
-
+<% provide(:title, '名簿') %>
+<h1>名簿</h1>
 <%= will_paginate %>
-
-<ul class="users">
+<table class="commonTable">
+<tr><th>名前</th><th>備考</th><th>住所</th></tr>
   <%= render @users %>
-</ul>
-
+</table>
 <%= will_paginate %>

@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=4">
+    <meta name="format-detection" content="telephone=yes">
     <meta name="Keywords" content="品川区立, 荏原第四中学校, 同期会, 
                                 　1969年卒業, 昭和44年卒業">
     <meta name="Description" content="荏原四中同期会有志のWebサイトです。">
@@ -14,7 +16,7 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="container">
+    <div class="container-fluid">
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       <% end %>

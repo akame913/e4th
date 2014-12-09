@@ -1,15 +1,15 @@
-<li>
-  <span class="span2">
+<tr>
+  <td>
     <% if user.maiden %>
       <%= link_to user.maiden, user %>&nbsp;<%= user.given %>&nbsp;（<%= user.family %>）
     <% else %>
       <%= link_to user.family, user %>&nbsp;<%= user.given %>
     <% end %>
-  </span>
-  <span class="span2">
+ </td>
+ <td>
     <%= user.notes %>
-  </span>
-  <span class="span3">
-    <%= user.region %>&nbsp;<%= user.city %>
-  </span>
-</li>
+ </td>
+ <td>
+    <%= user.region %>
+ </td>
+</tr>
