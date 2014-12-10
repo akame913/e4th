@@ -254,7 +254,7 @@ aside {
 }
 
 /*------------------------------------------------
-   album
+   albumList
 ------------------------------------------------*/
 #albumList{
 }
@@ -285,11 +285,53 @@ clear:both;
 
 #albumList article section p img{
 float:center;
-width:200px;
+width:80%;
 margin:0 10px 6px 0;
 }
 
 #albumList article .btn{
+position:absolute;
+right:0;
+//bottom:0;
+}
+
+/*------------------------------------------------
+   pictureList
+------------------------------------------------*/
+#pictureList{
+}
+
+#pictureList article{
+position:relative;
+margin:0 0 15px 0;
+}
+
+#pictureList article:last-child{
+margin:0;
+}
+
+#pictureList article section{
+padding:0 0 24px 0;
+}
+
+#pictureList article section p{
+font-size:1.0em;
+line-height:1.6;
+}
+
+#pictureList article section p:after{
+content:"";
+display:block;
+clear:both;
+}
+
+#pictureList article section p img{
+float:center;
+//width:80%;
+margin:0 10px 6px 0;
+}
+
+#pictureList article .btn{
 position:absolute;
 right:0;
 //bottom:0;

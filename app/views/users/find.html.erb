@@ -1,10 +1,10 @@
 <% provide(:title, 'Find users') %>
 <% if @class == "001" || @class == "002" || @class == "003" || @class == "004" || @class == "011" || @class == "012" || @class == "013" || @class == "014" || @class == "015" || @class == "016" %>
   <h1>拡大</h1>
-  <%= image_tag @class+'.png' %>
+  <%= image_tag @class+'.jpg' %>
 <% else %>
   <h1><%= @class %> 名簿</h1>
-  <%= image_tag @class+'.png' %>
+  <%= image_tag @class+'.jpg' %>
   <table class="commonTable">
   <tr><th>名前</th><th>備考</th><th>住所</th></tr>
     <%= render @users %>

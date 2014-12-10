@@ -8,7 +8,8 @@
           <li><%= link_to "ホーム",      root_path %></li>
           <li><%= link_to "ヘルプ",      help_path %></li>
           <% if signed_in? %>
-            <li><%= link_to "アルバム",     album_path %></li>
+            <li><%= link_to "アルバム",  album_path %></li>
+            <li><%= link_to "写真",      picture_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 アカウント <b class="caret"></b>

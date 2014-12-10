@@ -1,0 +1,22 @@
+<% provide(:title, '写真') %>
+<div class="center hero-unit">
+<h1>写真アルバム</h1>
+<div id="pictureList">
+  <article>
+    <h2>2014年3月29日同期会</h2>
+    <section>
+      <p><%= image_tag '20140329/01.jpg' %></p>
+      <%= link_to "詳細", "/picturefind?fstr=20140329" , class: "btn btn-default btn-primary" %>
+    </section>
+  </article>
+
+  <article>
+    <h2>2014年5月3日同期会幹事反省会</h2>
+    <section>
+      <p><%= image_tag '20140503/01.jpg' %></p>
+      <%= link_to "詳細", "/picturefind?fstr=20140503" , class: "btn btn-default btn-primary" %>
+    </section>
+  </article>
+</div>
+</div>
+

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class StaticPagesController < ApplicationController
   def home
   end
@@ -10,4 +12,13 @@ class StaticPagesController < ApplicationController
 
   def album
   end
+
+  def picture
+  end
+
+  def picturefind
+    @fstr = params[:fstr]
+    @filenames = Dir.glob("app/assets/images/"+@fstr+"/*").map do |f| File.basename f end
+  end
+
 end

@@ -1,0 +1,14 @@
+<% provide(:title, '写真') %>
+<!-- <div class="center hero-unit"> -->
+  <h2><%= @fstr %></h2>
+  <div id="pictureList">
+    <% @filenames.sort.each do |f| %>
+      <article>
+        <section>
+          <p><%= image_tag @fstr+"/"+f %></p>
+        </section>
+      </article>
+    <% end %>
+<!--  </div>  -->
+</div>
+
