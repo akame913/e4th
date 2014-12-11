@@ -1,6 +1,7 @@
-<% provide(:title, '写真') %>
+<% provide(:title, '写真詳細') %>
 <!-- <div class="center hero-unit"> -->
   <h2><%= @fstr %></h2>
+
   <div id="pictureList">
     <% @filenames.sort.each do |f| %>
       <article>
@@ -9,6 +10,7 @@
         </section>
       </article>
     <% end %>
-<!--  </div>  -->
-</div>
+  </div>
+
+<!-- </div> -->
 

@@ -1,33 +1,84 @@
 <% if signed_in? %>
-  <div class="center hero-unit">
-    <h1>お知らせ</h1>
-    <h2>荏原四中同期会からのお知らせです。</h2>
-    <p>次回同期会</P>
-    <p>日時：２０１５年３月７日（土）午後２時〜</p>
-    <p>場所：荏原第５地域センター</p>
-  </div>
-  <h2>2014年12月6日（土）幹事会報告</h2>
-  <dl>
-    <dt>前回出席</dt>
-      <dd>
-        回答数：106名</br>
-        出席者：59名
-      </dd>
-    <dt>案内状</dt>
-      <dd>
-        回答締切：2015年1月31日</br>
-      </dd>
-    <dt>最終幹事会</dt>
-      <dd>
-        2015年2月21日 場所等は別途連絡
-      </dd>
-  </dl>  
+  <h2>忘年会</h2>
+  <table class="commonTable">
+    <tr>
+      <th>日時</th>
+        <td>
+          2014年12月20日（土）午後5時〜
+        </td>
+    </tr>
+    <tr>
+      <th>場所</th>
+        <td>
+          豊町「きんどん」<br>
+          <small>前回同期会の二次会場所</small>
+        </td>
+    </tr>
+  </table>
+  <hr> 
+ 
+  <h2>次回同期会</h2>
+  <table class="commonTable">
+    <tr>
+      <th>日時</th>
+        <td>
+          2015年3月7日（土）午後2時〜
+        </td>
+    </tr>
+    <tr>
+      <th>場所</th>
+        <td>
+          荏原第5地域センター<br>
+          <small>前回同期会場所</small>
+        </td>
+    </tr>
+  </table>
+  <hr> 
+
+  <h2>幹事会報告</h2>
+  <table class="commonTable">
+    <tr>
+      <th>日時</th>
+        <td>
+          2014年12月6日（土）午後5時〜
+        </td>
+    </tr>
+    <tr>
+      <th>場所</th>
+        <td>
+          大井町「川平」
+        </td>
+    </tr>
+    <tr>
+      <th>前回出席</th>
+        <td>
+          回答数：106名<br>
+          出席者：59名
+        </td>
+    </tr>
+    <tr>
+      <th>案内状</th>
+        <td>
+          回答締切：2015年1月31日
+        </td>
+    </tr>
+    <tr>
+      <th>最終幹事会</th>
+        <td>
+          2015年2月21日（土）<br>
+          場所等は別途連絡
+        </td>
+    </tr>
+  </table>
+  <hr> 
 <% else %>
-  <div class="center hero-unit">
-    <h1>Ebara 4thへようこそ</h1>
+  <!-- <div class="center hero-unit"> -->
+    <!-- <h1>Ebara 4thへようこそ</h1> -->
     <h2>
       本ページは品川区立荏原四中1969年卒業同期会有志が運営しています。
     </h2>
-    <%= link_to "サインインしてください!", signin_path, class: "btn btn-large btn-primary" %>
-  </div>
+    <p class="center">
+    <%= link_to "サインインしてください!", signin_path, class: "btn btn-small btn-primary" %>
+    </p>
+  <!-- </div> -->
 <% end %>

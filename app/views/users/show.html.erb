@@ -1,8 +1,8 @@
 <% provide(:title, @user.name) %>
 <div class="row-fluid">
-  <h1>
+  <h2>
     <%= @user.name %>
-  </h1>
+  </h2>
   <table class="commonTable">
     <tr>
       <th>名前</th>
@@ -45,5 +45,10 @@
       <td><%= @user.email %></td>
     </tr>
   </table>
+  <% if current_user?(@user) %>
+    <p class="center">
+      <%= link_to "編集", edit_user_path(@user), class: "btn btn-small btn-primary" %>
+    </p>
+  <% end %>
 </div>
 

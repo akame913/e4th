@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 80px;
 }
 
 section {
@@ -49,7 +49,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
@@ -218,41 +218,6 @@ input {
   }
 }
 
-/* microposts */
-
-.microposts {
-  list-style: none;
-  margin: 10px 0 0 0;
-
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
-}
-.content {
-  display: block;
-}
-.timestamp {
-  color: $grayLight;
-}
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 5px;
-  }
-}
-
-/* album */
-.album{
-  img {
-    width:100%;
-  }
-}
-
 /*------------------------------------------------
    albumList
 ------------------------------------------------*/
@@ -269,7 +234,7 @@ margin:0;
 }
 
 #albumList article section{
-padding:0 0 24px 0;
+//padding:0 0 24px 0;
 }
 
 #albumList article section p{
@@ -284,15 +249,16 @@ clear:both;
 }
 
 #albumList article section p img{
-float:center;
-width:80%;
-margin:0 10px 6px 0;
+//float:left;
+width:100%;
+height: 100%;
+//margin:0 10px 6px 0;
 }
 
 #albumList article .btn{
 position:absolute;
 right:0;
-//bottom:0;
+bottom:10px;
 }
 
 /*------------------------------------------------
@@ -311,7 +277,8 @@ margin:0;
 }
 
 #pictureList article section{
-padding:0 0 24px 0;
+//border: solid 1px #888;
+//padding:0 0 24px 0;
 }
 
 #pictureList article section p{
@@ -326,15 +293,16 @@ clear:both;
 }
 
 #pictureList article section p img{
-float:center;
-//width:80%;
-margin:0 10px 6px 0;
+//float:left;
+width:100%;
+height:100%;
+//margin:0 10px 6px 0;
 }
 
 #pictureList article .btn{
 position:absolute;
 right:0;
-//bottom:0;
+bottom:10px;
 }
 
 /*------------------------------------------------
@@ -361,6 +329,24 @@ border:#ddd solid 1px;
 //width:80%;
 padding:6px;
 border:#ddd solid 1px;
+}
+
+/*------------------------------------------------
+   Blue button
+------------------------------------------------*/
+#albumList .bluebtn{
+display:block;
+width:68px;
+height:18px;
+padding:0 0 0 22px;
+font-size:10px;
+color:#fff;
+text-decoration:none;
+line-height:18px;
+background:#09c url(all_arw02r.png) no-repeat 6px 3px;
+-webkit-background-size:11px;
+background-size:11px;
+border-radius:3px;
 }
 
 /*------------------------------------------------
