@@ -1,15 +1,14 @@
 <tr>
   <td>
-    <% if user.maiden %>
-      <%= link_to user.maiden, user %>&nbsp;<%= user.given %>&nbsp;（<%= user.family %>）
-    <% else %>
-      <%= link_to user.family, user %>&nbsp;<%= user.given %>
+    <%= link_to user.family, user %>&nbsp;<%= user.given %>
+    <% if user.maiden.present? %>
+      &nbsp;（<%= user.maiden %>）
     <% end %>
- </td>
- <td>
+  </td>
+  <td>
     <%= user.notes %>
- </td>
- <td>
+  </td>
+  <td>
     <%= user.region %>
- </td>
+  </td>
 </tr>

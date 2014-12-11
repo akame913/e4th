@@ -7,10 +7,9 @@
     <tr>
       <th>名前</th>
       <td>
-        <% if @user.maiden %>
-          <%= @user.maiden %>&nbsp;<%= @user.given %>（<%= @user.family %>）
-        <% else %>
-          <%= @user.family %>&nbsp;<%= @user.given %>
+        <%= @user.family %>&nbsp;<%= @user.given %>
+        <% if @user.maiden.present? %>
+          &nbsp;（<%= @user.maiden %>）
         <% end %>
       </td>
     </tr>
@@ -45,7 +44,7 @@
       <td><%= @user.email %></td>
     </tr>
   </table>
-  <% if current_user?(@user) %>
+  <% if signed_in? && current_user?(@user) %>
     <p class="center">
       <%= link_to "編集", edit_user_path(@user), class: "btn btn-small btn-primary" %>
     </p>

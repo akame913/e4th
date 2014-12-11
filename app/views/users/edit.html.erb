@@ -42,10 +42,12 @@
       <%= f.label :email, "メールアドレス" %>
       <%= f.text_field :email %>
 
+<!--
       <% if current_user.admin? %>
         <%= f.label :admin, "管理権限" %>
         <%= f.check_box :admin,{:checked => @user.admin}, true, false %>
       <% end %>
+-->
       
       <%= f.label :password, "パスワード" %>
       <%= f.password_field :password %>
