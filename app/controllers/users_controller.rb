@@ -7,9 +7,28 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
       
   def index
-    @users = User.paginate(page: params[:page])
+    #@users = User.paginate(page: params[:page])
+    @users = User.all
+    respond_to do |format|
+      format.html do
+        @users = @users.paginate(page: params[:page])
+      end
+      format.csv do
+        send_data render_to_string, filename: "users-#{Time.now.to_date.to_s}.csv", type: :csv
+      end
+    end
   end
 
+  def import
+    # fileはtmpに自動で一時保存される
+    User.import(params[:file])
+    redirect_to root_url, notice: "名簿を追加・更新しました。"
+  end
+
+  def csv
+    send_data User.to_csv, filename: "users-sjis-#{Time.now.to_date.to_s}.csv", type: "text/csv; charset=shift_jis"
+  end
+   
   def show
     @user = User.find(params[:id])
   end
@@ -73,7 +92,7 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user)
+      redirect_to(root_path) unless (current_user?(@user) ||  current_user.admin?)
     end
 
     def admin_user

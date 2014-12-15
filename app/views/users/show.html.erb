@@ -4,7 +4,7 @@
     <%= @user.name %>
   </h2>
   <table class="commonTable">
-    <tr>
+   <tr>
       <th>名前</th>
       <td>
         <%= @user.family %>&nbsp;<%= @user.given %>
@@ -44,10 +44,10 @@
       <td><%= @user.email %></td>
     </tr>
   </table>
-  <% if signed_in? && current_user?(@user) %>
+  <br>
+  <% if signed_in? && (current_user?(@user) || current_user.admin?) %>
     <p class="center">
       <%= link_to "編集", edit_user_path(@user), class: "btn btn-small btn-primary" %>
     </p>
   <% end %>
 </div>
-

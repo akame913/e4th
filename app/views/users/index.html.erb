@@ -6,3 +6,10 @@
   <%= render @users %>
 </table>
 <%= will_paginate %>
+<%= link_to 'エキスポート', users_path(format: :csv) %>
+<!-- ページの一番下に追加 -->
+<%= form_tag import_users_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "インポート" %>
+<% end %>
+
