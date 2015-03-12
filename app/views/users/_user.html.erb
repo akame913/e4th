@@ -1,9 +1,9 @@
 <tr>
   <td>
-    <% if user.notes == "非公開" %>
-      <%= user.family %>&nbsp;<%= user.given %>
-    <% else %>
+    <% if current_user.admin? %>
       <%= link_to user.family, user %>&nbsp;<%= user.given %>
+    <% else %>
+      <%= user.family %>&nbsp;<%= user.given %>
     <% end %>
     <% if user.maiden.present? %>
       &nbsp;（<%= user.maiden %>）

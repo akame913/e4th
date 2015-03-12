@@ -47,13 +47,20 @@
       <%= f.check_box :admin ,{:checked => false}, true, false %>
 -->
       
+      <%= f.label :group_id, "グループ" %>
+      <%= f.select :group_id, {"荏原四中" => 1,
+                               "都立高専" => 2,
+                               "PIONEER " => 3,
+                               "家族他" => 4},
+                               :prompt => "選択してください" %>
+                            
       <%= f.label :password, "パスワード" %>
       <%= f.password_field :password %>
 
       <%= f.label :password_confirmation, "確認パスワード" %>
       <%= f.password_field :password_confirmation %>
 
-      <%= f.submit "名簿追加", class: "btn btn-large btn-primary" %>
+      <%= f.submit "名簿追加", class: "btn btn-normal btn-primary" %>
     <% end %>
   </div>
 </div>

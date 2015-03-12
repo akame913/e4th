@@ -1,11 +1,13 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container-fluid">
-      <%= link_to "荏原四中", root_path, id: "logo"  %>
+      <%= link_to "同期会", root_path, id: "logo"  %>
       <nav>            
         <ul class="nav pull-right">
           <li><%= link_to "ホーム",      root_path %></li>
+<!-- 
           <li><%= link_to "ヘルプ",      help_path %></li>
+-->
           <% if signed_in? %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -16,7 +18,11 @@
                 <li><%= link_to "写真",      picture_path %></li>
                 <li class="divider"></li>
                 <li><%= link_to "プロフィール", current_user %></li>
-                <li><%= link_to "編集", edit_user_path(current_user) %></li>
+                <% if current_user.name != "ebara4" && 
+                      current_user.name != "tmtc" && 
+                      current_user.name != "pioneer" %>
+                  <li><%= link_to "編集", edit_user_path(current_user) %></li>
+                <% end %>
                 <% if current_user.admin? %>
                   <li><%= link_to "名簿", users_path %></li>
                   <li><%= link_to "名簿追加", new_user_path %></li>

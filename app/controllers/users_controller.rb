@@ -78,7 +78,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :family, :given, :maiden, :pobox,
                                    :region, :city, :street, :tel, :mobile,
                                    :notes, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :group_id)
     end
 
     # Before actions

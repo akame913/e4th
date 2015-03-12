@@ -25,6 +25,7 @@ CSV.foreach('db/seed.csv') do |row|
               :email  => row[15], 
               :password => row[16], 
               :password_confirmation => row[16], 
-              :admin => row[17])
+              :admin => row[17],
+              :group_id => row[18])
 end
 

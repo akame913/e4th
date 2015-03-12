@@ -35,12 +35,12 @@ describe "Static pages" do
     end
   end
 
-  describe "Help page" do
-    before { visit help_path }
-
-    it { should have_content('ヘルプ') }
-    it { should have_title(full_title('ヘルプ')) }
-  end
+  #describe "Help page" do
+  #  before { visit help_path }
+  #
+  #  it { should have_content('ヘルプ') }
+  #  it { should have_title(full_title('ヘルプ')) }
+  #end
 
   describe "About page" do
     before { visit about_path }
@@ -53,8 +53,8 @@ describe "Static pages" do
     visit root_path
     click_link "サイト概要"
     expect(page).to have_title(full_title('サイト概要'))
-    click_link "ヘルプ"
-    expect(page).to have_title(full_title('ヘルプ'))
+    #click_link "ヘルプ"
+    #expect(page).to have_title(full_title('ヘルプ'))
     click_link "ホーム"
     click_link "サインインしてください!"
     expect(page).to have_title(full_title('サインイン'))

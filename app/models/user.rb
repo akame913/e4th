@@ -6,10 +6,11 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
     
   validates :name, presence: true, length: { maximum: 50 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 4 }
+  # validates :group_id, presence: true
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
@@ -43,7 +44,7 @@ class User < ActiveRecord::Base
 
   # 更新を許可するカラムを定義
   def self.updatable_attributes
-    ["name", "family", "given", "maiden", "pobox", "region", "city", "street", "tel", "mobile", "notes", "email", "admin", "password", "password_confirmation"]
+    ["name", "family", "given", "maiden", "pobox", "region", "city", "street", "tel", "mobile", "notes", "email", "admin", "password", "password_confirmation", "group_id"]
   end
     
   private
