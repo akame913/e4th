@@ -1,0 +1,12 @@
+<% provide(:title, 'お知らせ') %>
+<h2>お知らせ</h2>
+<div id="articleList">
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <h3><%= article.date %></h3>
+      <span><%= link_to article.title, article %></span>
+    </li>
+  <% end %>
+</ul>
+</div>

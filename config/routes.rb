@@ -1,5 +1,6 @@
 E4th::Application.routes.draw do
 
+  resources :articles
   resources :users  do
     collection { post :import }
   end

@@ -18,10 +18,18 @@ FactoryGirl.define do
     sequence(:email)    { |n| "person_#{n}@example.com"}
     password "foobar"
     password_confirmation "foobar"
-    sequence(:group_id) { |n| "#{n}"}
+    group_id 1
     
     factory :admin do
       admin true
     end
   end
+
+  factory :article do
+    sequence(:title)      { |n| "Title #{n}" }
+    group_id 1
+    sequence(:user_id)    { |n| "#{n}"} 
+    sequence(:date)       { |n| "#{n}"}
+    sequence(:content)    { |n| "Content #{n}"}
+  end      
 end

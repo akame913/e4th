@@ -57,6 +57,15 @@ h2 {
   color: $grayLight;
 }
 
+h3 {
+  font-size: 1.2em;
+  letter-spacing: -0.5px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $grayLight;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -303,6 +312,105 @@ width:100%;
 position:absolute;
 right:0;
 bottom:10px;
+}
+
+/*------------------------------------------------
+   Article
+------------------------------------------------*/
+#articleList{
+}
+
+#articleList ul{
+padding:8px 0 0 0;
+font-size:10px;
+line-height:1.6;
+list-style:none;
+border-top:#ddd dotted 1px;
+}
+
+#articleList ul li{
+}
+
+#articleList ul li h3{
+width:50px;
+font-weight:bold;
+}
+
+#articleList ul li span{
+display:block;
+margin:-1.6em 0 10px 0;
+padding:0 0 10px 60px;
+border-bottom:#ddd dotted 1px;
+}
+
+#articleList ul li:last-child span{
+margin-bottom:0;
+padding-bottom:0;
+border-bottom:none;
+}
+
+#articleArea{
+}
+
+#articleArea header{
+}
+
+#articleArea header time{
+display:block;
+margin:0 0 3px 0;
+font-size:10px;
+color:#666;
+}
+
+#articleArea header h1{
+margin:0 0 14px 0;
+padding:0 0 7px 0;
+font-size:12px;
+font-weight:bold;
+color:#069;
+border-bottom:#ddd dotted 1px;
+}
+
+#articleArea section{
+margin:0 0 14px 0;
+padding:0 0 16px 0;
+font-size:10px;
+line-height:1.6;
+border-bottom:#ddd dotted 1px;
+}
+
+#articleArea section img{
+float:left;
+width:200px;
+padding:0 10px 6px 0;
+}
+
+#articleArea .pageNation{
+font-size:10px;
+list-style:none;
+}
+
+#articleArea .pageNation .prev{
+float:left;
+}
+
+#articleArea .pageNation .prev a{
+padding:0 0 0 16px;
+background:url(../img/all_arw01l.png) no-repeat left center;
+-webkit-background-size:11px;
+background-size:11px;
+}
+
+#articleArea .pageNation .next{
+float:right;
+text-align:right;
+}
+
+#articleArea .pageNation .next a{
+padding:0 16px 0 0;
+background:url(../img/all_arw01r.png) no-repeat right center;
+-webkit-background-size:11px;
+background-size:11px;
 }
 
 /*------------------------------------------------

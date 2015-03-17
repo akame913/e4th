@@ -1,0 +1,31 @@
+<% provide(:title, 'お知らせ更新') %>
+<h2>お知らせ更新</h2>
+
+<div class="row-fluid">
+  <div class="span6 offset3">
+    <%= form_for(@article) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :title, "題名" %>
+      <%= f.text_field :title %>
+
+      <%= f.label :group_id, "グループ" %>
+      <%= f.select :group_id, {"荏原四中" => 1,
+                               "都立高専" => 2,
+                               "PIONEER " => 3,
+                               "家族他" => 4},
+                               :prompt => "選択してください" %>
+                               
+      <%= f.label :user_id, "作成者ID" %>
+      <%= f.text_field :user_id %>
+
+      <%= f.label :date, "日付" %>
+      <%= f.text_field :date %>
+
+      <%= f.label :content, "内容" %>
+      <%= f.text_area :content, rows: 6 %>
+
+      <%= f.submit "お知らせ更新", class: "btn btn-normal btn-primary" %>
+    <% end %>
+  </div>
+</div>
