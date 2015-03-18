@@ -3,5 +3,6 @@
 <h3>
 <%= @article.title %>
 </h3>
-<p><img src=# alt="dummy" /><%= @article.date %></p>
+<p><%= @article.date %></p>
+<%= markdown(@article.content) %>
 </div>

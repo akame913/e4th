@@ -1,12 +1,25 @@
 <% provide(:title, 'お知らせ') %>
 <h2>お知らせ</h2>
+<!-- 
 <div id="articleList">
-<ul>
+-->
+<ul class="users">
   <% @articles.each do |article| %>
     <li>
-      <h3><%= article.date %></h3>
-      <span><%= link_to article.title, article %></span>
+      <%= article.date %>
+      <%= link_to article.title, article %>
+      <p><%= markdown(article.content) %></p>
+
+      <% if current_user?(article.user_id) || current_user.admin? %>
+        <%= link_to "Edit", edit_article_path(article) %><br />
+      <% end %>
+      <% if current_user.admin? %>
+        <%= link_to "Delete", article, method: :delete,
+                                 data: { confirm: "本当に削除しますか?" } %>
+      <% end %>
     </li>
   <% end %>
 </ul>
+<!--
 </div>
+-->

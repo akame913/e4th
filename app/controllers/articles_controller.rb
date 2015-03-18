@@ -37,7 +37,13 @@ class ArticlesController < ApplicationController
     #@articles = Article.all
     @articles = Article.where(group_id: current_user.group_id).order("created_at DESC")
   end
-  
+
+  def destroy
+    Article.find(params[:id]).destroy
+    flash[:success] = "お知らせは削除されました！"
+    redirect_to articles_url
+  end
+    
   private
     # Never trust parameters from the scary internet, only allow the white
     # list through.
