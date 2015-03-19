@@ -31,5 +31,11 @@ FactoryGirl.define do
     sequence(:user_id)    { |n| "#{n}"} 
     sequence(:date)       { |n| "#{n}"}
     sequence(:content)    { |n| "Content #{n}"}
+  end
+  
+  factory :picture do
+    image_file_name "picture.png" 
+    image_content_type "image/png"
+    article
   end      
 end

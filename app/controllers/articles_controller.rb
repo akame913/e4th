@@ -3,6 +3,8 @@
 class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
+    @picture = @article.pictures.build
+#    @pictures = @article.pictures.paginate(page: params[:page])
   end
   
   def new
@@ -11,6 +13,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+
     if @article.save
       flash[:success] = "お知らせが登録されました!"
       redirect_to @article

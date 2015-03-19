@@ -5,12 +5,28 @@ require 'spec_helper'
 describe "Article Pages" do
   subject { page }
 
+  let(:user) { FactoryGirl.create(:admin) }
+  before { sign_in user }
+  
   describe "show page" do
     let(:article) { FactoryGirl.create(:article) }
+    let!(:p1) { FactoryGirl.create(:picture, article: article, 
+                                     image_file_name: "picture1.png" ,
+                                     image_content_type: "image/png") }
+    let!(:p2) { FactoryGirl.create(:picture, article: article, 
+                                     image_file_name: "picture2.png" ,
+                                     image_content_type: "image/png") }
     before { visit article_path(article) }
 
     it { should have_content(article.title) }
     it { should have_title(article.title) }
+
+    describe "pictures" do
+      #it { should have_content(p1.id) }
+      #it { should have_content(p2.id) }
+      #it { should have_content(article.pictures.count) }
+      it { should have_selector('img') }
+    end
   end
     
   describe "index" do

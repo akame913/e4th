@@ -33,8 +33,8 @@ describe "Authentication" do
       before { sign_in admin }
 
       it { should have_title(admin.name) }
-      it { should have_link('アルバム',       href: album_path) }
-      it { should have_link('写真',           href: picture_path) }
+#      it { should have_link('アルバム',       href: album_path) }
+#      it { should have_link('写真',           href: picture_path) }
       it { should have_link('プロフィール',   href: user_path(admin)) }
       it { should have_link('編集',           href: edit_user_path(admin)) }
       it { should have_link('名簿',           href: users_path) }

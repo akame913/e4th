@@ -1,0 +1,10 @@
+<%= form_for(@picture, 
+                html: {multipart: true}) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.hidden_field :article_id, :value => @article.id %>
+    <%= f.file_field :image %>
+  </div>
+  <%= f.submit "写真追加", class: "btn btn-normal btn-primary" %>
+<% end %>
+

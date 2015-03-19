@@ -5,4 +5,32 @@
 </h3>
 <p><%= @article.date %></p>
 <%= markdown(@article.content) %>
+<%= form_for(@picture,
+                html: {multipart: true}) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.hidden_field :article_id, :value => @article.id %>
+    <%= f.file_field :image %>
+  </div>
+  <%= f.submit "写真追加", class: "btn btn-normal btn-primary" %>
+<% end %>
+
+<% if @article.pictures.any? %>
+<!--
+  <p>写真です(<%= @article.pictures.count %>)</p>
+-->
+  <div id="pictureList">
+    <% @article.pictures.each do |pic| %>
+      <article>
+        <section>
+          <p><%= image_tag pic.image.url(:medium) %></p>
+          <% if current_user.admin? %>
+              <%= link_to "Delete", pic, method: :delete,
+                                 data: { confirm: "本当に削除しますか?" } %>
+          <% end %>
+        </section>
+      </article>
+    <% end %>
+  </div>
+<% end %>
 </div>

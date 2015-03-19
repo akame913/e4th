@@ -23,4 +23,18 @@ describe Article do
     before { @article.title = " " }
     it { should_not be_valid }
   end
+  
+  describe "picture associations" do
+    before { @article.save }
+    let!(:older_picture) do
+      FactoryGirl.create(:picture, article: @article, created_at: 1.day.ago)
+    end
+    let!(:newer_picture) do
+      FactoryGirl.create(:picture, article: @article, created_at: 1.hour.ago)
+    end
+
+    it "should have the right pictures in the right order" do
+      expect(@article.pictures.to_a).to eq [newer_picture, older_picture]
+    end
+  end
 end
