@@ -15,21 +15,24 @@
   <%= f.submit "写真追加", class: "btn btn-normal btn-primary" %>
 <% end %>
 
-<% if @article.pictures.any? %>
-<!--
-  <p>写真です(<%= @article.pictures.count %>)</p>
--->
+<% if @article.pictures.count > 0 %>
   <div id="pictureList">
     <% @article.pictures.each do |pic| %>
+      <% if pic.image_file_name != nil %>
       <article>
         <section>
-          <p><%= image_tag pic.image.url(:medium) %></p>
+          <%= pic.image_file_name %>
+          <p>
+          <%= image_tag pic.image.url(:medium) %>
           <% if current_user.admin? %>
-              <%= link_to "Delete", pic, method: :delete,
+             <%= link_to "削除", pic, method: :delete,
                                  data: { confirm: "本当に削除しますか?" } %>
           <% end %>
+          </p>
+          <p class="btn"><%= link_to "拡大", pic.image.url(:original) %><p>
         </section>
       </article>
+      <% end %>
     <% end %>
   </div>
 <% end %>

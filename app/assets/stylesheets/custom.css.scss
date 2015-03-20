@@ -278,7 +278,7 @@ bottom:10px;
 
 #pictureList article{
 position:relative;
-margin:0 0 15px 0;
+//margin:0 0 15px 0;
 }
 
 #pictureList article:last-child{
@@ -291,8 +291,8 @@ margin:0;
 }
 
 #pictureList article section p{
-font-size:1.0em;
-line-height:1.6;
+font-size:1.2em;
+line-height:1.0;
 }
 
 #pictureList article section p:after{
@@ -303,13 +303,13 @@ clear:both;
 
 #pictureList article section p img{
 float:left;
-width:250px;
+width:300px;
 margin:0 10px 6px 0;
 }
 
 #pictureList article .btn{
 position:absolute;
-right:0;
+left:0;
 bottom:10px;
 }
 
