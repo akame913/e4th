@@ -13,8 +13,8 @@
       <% if pic.image_file_name != nil %>
       <article>
         <section>
-          <%= pic.image_file_name %>
-          <% if current_user.admin? %>
+          <%= pic.image_file_name %> | <%= pic.user.name %>
+          <% if (current_user.admin? || current_user.id == pic.user_id) %>
              | <%= link_to "削除", pic, method: :delete,
                                  data: { confirm: "本当に削除しますか?" } %>
           <% end %>
@@ -27,17 +27,19 @@
   </div>
   <% end %>
 <%= will_paginate  @pictures %>
-<section class="form">
-<%= form_for(@picture,
-                html: {multipart: true}) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <dl class="formList">
-    <%= f.hidden_field :article_id, :value => @article.id %>
-    <dd><%= f.file_field :image %></dd>
-  </dl>
-  <p><%= f.submit "写真追加", class: "btn btn-normal btn-primary" %></p>
+<% if current_user.name != "ebara4" && current_user.name != "tmtc" && current_user.name != "pioneer" %>
+  <section class="form">
+  <%= form_for(@picture,
+                  html: {multipart: true}) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <dl class="formList">
+      <%= f.hidden_field :article_id, :value => @article.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <dd><%= f.file_field :image %></dd>
+    </dl>
+    <p><%= f.submit "写真追加", class: "btn btn-normal btn-primary" %></p>
+  <% end %>
+  </section>
 <% end %>
-</section>
-
 </div>
 </article>

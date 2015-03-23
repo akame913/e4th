@@ -37,5 +37,6 @@ FactoryGirl.define do
     image_file_name "picture.png" 
     image_content_type "image/png"
     article
+    user
   end      
 end

@@ -10,10 +10,10 @@ describe "Article Pages" do
   
   describe "show page" do
     let(:article) { FactoryGirl.create(:article) }
-    let!(:p1) { FactoryGirl.create(:picture, article: article, 
+    let!(:p1) { FactoryGirl.create(:picture, article: article, user: user,
                                      image_file_name: "picture1.png" ,
                                      image_content_type: "image/png") }
-    let!(:p2) { FactoryGirl.create(:picture, article: article, 
+    let!(:p2) { FactoryGirl.create(:picture, article: article, user: user,
                                      image_file_name: "picture2.png" ,
                                      image_content_type: "image/png") }
     before { visit article_path(article) }

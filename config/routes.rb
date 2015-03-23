@@ -1,11 +1,11 @@
 E4th::Application.routes.draw do
 
+  resources :pictures
   resources :articles
   resources :users  do
     collection { post :import }
   end
   resources :sessions,      only: [:new, :create, :destroy]
-  resources :pictures,      only: [:create, :destroy]
   
   root  'static_pages#home'
   match '/find',        to: 'users#find',               via: 'get'
@@ -15,7 +15,7 @@ E4th::Application.routes.draw do
   match '/signout',     to: 'sessions#destroy',         via: 'delete'
   match '/help',        to: 'static_pages#help',        via: 'get'
   match '/about',       to: 'static_pages#about',       via: 'get'
-  match '/album',       to: 'static_pages#album',       via: 'get'
+#  match '/album',       to: 'static_pages#album',       via: 'get'
 #  match '/picture',     to: 'static_pages#picture',     via: 'get'
 #  match '/picturefind', to: 'static_pages#picturefind', via: 'get'
 

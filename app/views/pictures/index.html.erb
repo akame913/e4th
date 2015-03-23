@@ -1,0 +1,28 @@
+<% provide(:title, '投稿写真') %>
+<article id="contents">
+<header class="head">
+<h1>投稿写真</h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+</header>
+<div id="articleArea">
+<%= will_paginate @pictures %>
+<div id="pictureList">
+    <% @pictures.each do |pic| %>
+      <% if pic.image_file_name != nil %>
+      <article>
+        <section>
+          <%= pic.image_file_name %>
+          <% if (current_user.admin? || current_user.id == pic.user_id)  %>
+             | <%= link_to "削除", pic, method: :delete,
+                                 data: { confirm: "本当に削除しますか?" } %>
+          <% end %>
+          <p><%= image_tag pic.image.url(:medium) %></p>
+          <p class="btn"><%= link_to "拡大", pic.image.url(:original) %><p>
+        </section>
+      </article>
+      <% end %>
+    <% end %>
+</div>
+<%= will_paginate @pictures %>
+</div>
+</article>

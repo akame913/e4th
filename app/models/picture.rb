@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 class Picture < ActiveRecord::Base
+  belongs_to :user
   belongs_to :article
   default_scope -> { order('created_at DESC') }
   validates :article_id, presence: true
