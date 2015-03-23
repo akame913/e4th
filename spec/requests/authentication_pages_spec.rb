@@ -32,12 +32,14 @@ describe "Authentication" do
       let(:admin) { FactoryGirl.create(:admin) }
       before { sign_in admin }
 
-      it { should have_title(admin.name) }
+#      it { should have_title(admin.name) }
+      it { should have_title(full_title('')) }
+      it { should_not have_title('| ホーム') }
 #      it { should have_link('アルバム',       href: album_path) }
 #      it { should have_link('写真',           href: picture_path) }
       it { should have_link('プロフィール',   href: user_path(admin)) }
-      it { should have_link('編集',           href: edit_user_path(admin)) }
-      it { should have_link('名簿',           href: users_path) }
+#      it { should have_link('編集',           href: edit_user_path(admin)) }
+      it { should have_link('全名簿',           href: users_path) }
       it { should have_link('名簿追加',       href: new_user_path) }
       it { should have_link('サインアウト',   href: signout_path) }
       it { should_not have_link('サインイン', href: signin_path) }
@@ -78,8 +80,8 @@ describe "Authentication" do
               click_button "サインイン"
             end
 
-            it "should render the default (profile) page" do
-              expect(page).to have_title(user.name)
+            it "should render the default Home page" do
+              expect(page).to have_title(full_title(''))
             end
           end
         end

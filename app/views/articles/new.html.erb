@@ -1,32 +1,27 @@
 <% provide(:title, 'お知らせ登録') %>
-<h2>お知らせ登録</h2>
+<article id="contents">
+<header class="head">
+<h1>お知らせ登録</h1>
+</header>
 
-<div class="row-fluid">
-  <div class="span6 offset3">
-    <%= form_for(@article) do |f| %>
+<section class="form">
+  <%= form_for(@article) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <dl class="formList">
+      <dt><%= f.label :title, "題名" %></dt>
+      <dd><%= f.text_field :title %></dd>
 
-      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :group_id, :value => current_user.group_id %>
+<!--
+      <dt><%= f.label :date, "日付" %></dt>
+      <dd><%= f.text_field :date %></dd>
+-->
+      <dt><%= f.label :content, "内容" %></dt>
+      <dd><%= f.text_area :content, rows: 6 %><dd>
+     </dl>
+     <%= f.submit "お知らせ登録", class: "btn btn-normal btn-primary" %>
+  <% end %>
+</section>
+</article>
 
-      <%= f.label :title, "題名" %>
-      <%= f.text_field :title %>
-
-      <%= f.label :group_id, "グループ" %>
-      <%= f.select :group_id, {"荏原四中" => 1,
-                               "都立高専" => 2,
-                               "PIONEER " => 3,
-                               "家族他" => 4},
-                               :prompt => "選択してください" %>
-                               
-      <%= f.label :user_id, "作成者ID" %>
-      <%= f.text_field :user_id %>
-
-      <%= f.label :date, "日付" %>
-      <%= f.text_field :date %>
-
-      <%= f.label :content, "内容" %>
-      <%= f.text_area :content, rows: 6 %>
-
-      <%= f.submit "お知らせ登録", class: "btn btn-normal btn-primary" %>
-    <% end %>
-  </div>
-</div>

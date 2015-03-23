@@ -1,66 +1,64 @@
 <% provide(:title, '名簿追加') %>
-<h2>名簿追加</h2>
+<article id="contents">
+<header class="head">
+<h1>名簿追加</h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+</header>
 
-<div class="row-fluid">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      
-      <%= f.label :name, "登録名" %>
-      <%= f.text_field :name %>
+<section class="form">
+  <%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <dl class="formList">
+    <dt><%= f.label :name, "登録名" %></dt>
+    <dd><%= f.text_field :name %></dd>
 
-      <%= f.label :family, "姓" %>
-      <%= f.text_field :family %>
+    <dt><%= f.label :family, "姓" %></dt>
+    <dd><%= f.text_field :family %></dd>
 
-      <%= f.label :given, "名" %>
-      <%= f.text_field :given %>
+    <dt><%= f.label :given, "名" %></dt>
+    <dd><%= f.text_field :given %></dd>
 
-      <%= f.label :maiden, "新姓" %>
-      <%= f.text_field :maiden %>
+    <dt><%= f.label :maiden, "新姓" %></dt>
+    <dd><%= f.text_field :maiden %></dd>
 
-      <%= f.label :pobox, "郵便番号" %>
-      <%= f.text_field :pobox %>
+    <dt><%= f.label :pobox, "郵便番号" %></dt>
+    <dd><%= f.text_field :pobox %></dd>
 
-      <%= f.label :region, "都道府県" %>
-      <%= f.text_field :region %>
+    <dt><%= f.label :region, "都道府県" %></dt>
+    <dd><%= f.text_field :region %></dd>
 
-      <%= f.label :city, "市区" %>
-      <%= f.text_field :city %>
+    <dt><%= f.label :city, "市区" %></dt>
+    <dd><%= f.text_field :city %></dd>
 
-      <%= f.label :street, "町村番地・ビル" %>
-      <%= f.text_field :street %>
+    <dt><%= f.label :street, "町村番地・ビル" %></dt>
+    <dd><%= f.text_field :street %></dd>
 
-      <%= f.label :tel, "電話番号" %>
-      <%= f.text_field :tel %>
+    <dt><%= f.label :tel, "電話番号" %></dt>
+    <dd><%= f.text_field :tel %></dd>
 
-      <%= f.label :mobile, "携帯番号" %>
-      <%= f.text_field :mobile %>
+    <dt><%= f.label :mobile, "携帯番号" %></dt>
+    <dd><%= f.text_field :mobile %></dd>
 
-      <%= f.label :notes, "備考" %>
-      <%= f.text_field :notes %>
+    <dt><%= f.label :notes, "備考" %></dt>
+    <dd><%= f.text_field :notes %></dd>
 
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.text_field :email %>
+    <dt><%= f.label :email, "メールアドレス" %></dt>
+    <dd><%= f.text_field :email %></dd>
 
-<!--
-      <%= f.label :admin, "管理権限" %>
-      <%= f.check_box :admin ,{:checked => false}, true, false %>
--->
-      
-      <%= f.label :group_id, "グループ" %>
-      <%= f.select :group_id, {"荏原四中" => 1,
-                               "都立高専" => 2,
-                               "PIONEER " => 3,
-                               "家族他" => 4},
-                               :prompt => "選択してください" %>
-                            
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password %>
+    <dt><%= f.label :group_id, "グループ" %></dt>
+    <dd><%= f.select :group_id, {"荏原四中" => 1,
+                                 "都立高専" => 2,
+                                 "PIONEER " => 3,
+                                 "家族他" => 4},
+                                 :prompt => "選択してください" %></dd>
+                                     
+    <dt><%= f.label :password, "パスワード" %></dt>
+    <dd><%= f.password_field :password %></dd>
 
-      <%= f.label :password_confirmation, "確認パスワード" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "名簿追加", class: "btn btn-normal btn-primary" %>
-    <% end %>
-  </div>
-</div>
+    <dt><%= f.label :password_confirmation, "確認パスワード" %></dt>
+    <dd><%= f.password_field :password_confirmation %></dd>
+  </dl>
+  <%= f.submit "名簿追加", class: "btn btn-normal btn-primary" %>
+  <% end %>
+</section>
+</article>

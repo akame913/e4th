@@ -62,8 +62,8 @@ describe "Article Pages" do
     describe "with valid information" do
       before do
         fill_in "題名",     with: "Example Article"
-        fill_in "作成者ID", with: "2"
-        fill_in "日付",     with: "20150315"
+        #fill_in "作成者ID", with: "2"
+        #fill_in "日付",     with: "20150315"
         fill_in "内容",     with: "Example content"
       end
 

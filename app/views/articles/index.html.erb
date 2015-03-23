@@ -1,25 +1,33 @@
 <% provide(:title, 'お知らせ') %>
-<h2>お知らせ</h2>
-<!-- 
-<div id="articleList">
+<article id="contents">
+<header class="head">
+<h1>お知らせ</h1>
+</header>
+<!--
+<div class="main">
+<article id="articleList">
 -->
-<ul class="users">
+<ul class = "users">
   <% @articles.each do |article| %>
     <li>
-      <%= article.date %>
+<!--
+      <h3><%= article.created_at.strftime("%Y.%m.%d") %></h3>
+      <span><%= link_to article.title, article %></span>
+      <%= article.created_at.strftime("%Y.%m.%d") %>
+-->
       <%= link_to article.title, article %>
-      <p><%= markdown(article.content) %></p>
-
       <% if current_user?(article.user_id) || current_user.admin? %>
-        <%= link_to "Edit", edit_article_path(article) %><br />
+        | <%= link_to "Edit", edit_article_path(article) %>
       <% end %>
       <% if current_user.admin? %>
-        <%= link_to "Delete", article, method: :delete,
+        | <%= link_to "Delete", article, method: :delete,
                                  data: { confirm: "本当に削除しますか?" } %>
       <% end %>
     </li>
   <% end %>
 </ul>
 <!--
+</article>
 </div>
 -->
+</article>

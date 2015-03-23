@@ -1,10 +1,13 @@
 # encoding: utf-8
 
 class ArticlesController < ApplicationController
+  before_action :signed_in_user,
+                only: [:index, :show, :edit, :update, :destroy]
+
   def show
     @article = Article.find(params[:id])
     @picture = @article.pictures.build
-#    @pictures = @article.pictures.paginate(page: params[:page])
+    @pictures = @article.pictures.paginate(page: params[:page], per_page: 5)
   end
   
   def new
@@ -57,4 +60,11 @@ class ArticlesController < ApplicationController
                                       :date,
                                       :content)
     end  
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "サインインしてください"
+      end
+    end
 end

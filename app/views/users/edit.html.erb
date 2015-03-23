@@ -1,61 +1,57 @@
 <% provide(:title, "編集") %>
-<h2>プロフィール編集</h2>
+<article id="contents">
+<header class="head">
+<h1><%= @user.name %> 編集</h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+</header>
 
-<div class="row-fluid">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+<section class="form">
+  <%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <dl class="formList">
+    <dt><%= f.label :name, "登録名" %></dt>
+    <dd><%= f.text_field :name %></dd>
 
-      <%= f.label :name, "登録名" %>
-      <%= f.text_field :name %>
+    <dt><%= f.label :family, "姓" %></dt>
+    <dd><%= f.text_field :family %></dd>
 
-      <%= f.label :family, "姓" %>
-      <%= f.text_field :family %>
+    <dt><%= f.label :given, "名" %></dt>
+    <dd><%= f.text_field :given %></dd>
 
-      <%= f.label :given, "名" %>
-      <%= f.text_field :given %>
+    <dt><%= f.label :maiden, "新姓" %></dt>
+    <dd><%= f.text_field :maiden %></dd>
 
-      <%= f.label :maiden, "新姓" %>
-      <%= f.text_field :maiden %>
+    <dt><%= f.label :pobox, "郵便番号" %></dt>
+    <dd><%= f.text_field :pobox %></dd>
 
-      <%= f.label :pobox, "郵便番号" %>
-      <%= f.text_field :pobox %>
+    <dt><%= f.label :region, "都道府県" %></dt>
+    <dd><%= f.text_field :region %></dd>
 
-      <%= f.label :region, "都道府県" %>
-      <%= f.text_field :region %>
+    <dt><%= f.label :city, "市区" %></dt>
+    <dd><%= f.text_field :city %></dd>
 
-      <%= f.label :city, "市区" %>
-      <%= f.text_field :city %>
+    <dt><%= f.label :street, "町村番地・ビル" %></dt>
+    <dd><%= f.text_field :street %></dd>
 
-      <%= f.label :street, "町村番地・ビル" %>
-      <%= f.text_field :street %>
+    <dt><%= f.label :tel, "電話番号" %></dt>
+    <dd><%= f.text_field :tel %></dd>
 
-      <%= f.label :tel, "電話番号" %>
-      <%= f.text_field :tel %>
+    <dt><%= f.label :mobile, "携帯番号" %></dt>
+    <dd><%= f.text_field :mobile %></dd>
 
-      <%= f.label :mobile, "携帯番号" %>
-      <%= f.text_field :mobile %>
+    <dt><%= f.label :notes, "備考" %></dt>
+    <dd><%= f.text_field :notes %></dd>
 
-      <%= f.label :notes, "備考" %>
-      <%= f.text_field :notes %>
+    <dt><%= f.label :email, "メールアドレス" %></dt>
+    <dd><%= f.text_field :email %></dd>
+     
+    <dt><%= f.label :password, "パスワード" %></dt>
+    <dd><%= f.password_field :password %></dd>
 
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.text_field :email %>
-
-<!--
-      <% if current_user.admin? %>
-        <%= f.label :admin, "管理権限" %>
-        <%= f.check_box :admin,{:checked => @user.admin}, true, false %>
-      <% end %>
--->
-      
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "確認パスワード" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "編集保存", class: "btn btn-normal btn-primary" %>
-    <% end %>
-  </div>
-</div>
+    <dt><%= f.label :password_confirmation, "確認パスワード" %></dt>
+    <dd><%= f.password_field :password_confirmation %></dd>
+  </dl>
+  <%= f.submit "編集保存", class: "btn btn-normal btn-primary" %>
+  <% end %>
+</section>
+</article>

@@ -1,5 +1,10 @@
 <% provide(:title, '名簿') %>
-<h2>名簿</h2>
+<article id="contents">
+<header class="head">
+<h1>名簿</h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+</header>
+
 <%= will_paginate %>
 <table class="commonTable">
 <tr><th>名前</th><th>備考</th><th>住所</th></tr>
@@ -12,4 +17,4 @@
   <%= file_field_tag :file %>
   <%= submit_tag "インポート" %>
 <% end %>
-
+</article>

@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :signed_in_user,
-                only: [:index, :edit, :update, :destroy, :find]
+                only: [:index, :show, :edit, :update, :destroy, :find]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
       
@@ -69,7 +69,11 @@ class UsersController < ApplicationController
   def find
     @class = params[:fstr]
     fstr = params[:fstr]
-    @users = User.where("name like ?","%" + fstr + "%")
+    if fstr == ""
+      @users = User.where(group_id: current_user.group_id)
+    else
+      @users = User.where("name like ?","%" + fstr + "%")
+    end
   end    
 
   private

@@ -1,39 +1,43 @@
 <% provide(:title, @article.title) %>
+<article id="contents">
+<header class="head">
+<h1><%= @article.title %></h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+</header>
 <div id="articleArea">
-<h3>
-<%= @article.title %>
-</h3>
-<p><%= @article.date %></p>
 <%= markdown(@article.content) %>
-<%= form_for(@picture,
-                html: {multipart: true}) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.hidden_field :article_id, :value => @article.id %>
-    <%= f.file_field :image %>
-  </div>
-  <%= f.submit "写真追加", class: "btn btn-normal btn-primary" %>
-<% end %>
-
-<% if @article.pictures.count > 0 %>
+<%= will_paginate @pictures %>
+  <% if @article.pictures.count > 0 %>
   <div id="pictureList">
-    <% @article.pictures.each do |pic| %>
+    <% @pictures.each do |pic| %>
       <% if pic.image_file_name != nil %>
       <article>
         <section>
           <%= pic.image_file_name %>
-          <p>
-          <%= image_tag pic.image.url(:medium) %>
           <% if current_user.admin? %>
-             <%= link_to "削除", pic, method: :delete,
+             | <%= link_to "削除", pic, method: :delete,
                                  data: { confirm: "本当に削除しますか?" } %>
           <% end %>
-          </p>
+          <p><%= image_tag pic.image.url(:medium) %></p>
           <p class="btn"><%= link_to "拡大", pic.image.url(:original) %><p>
         </section>
       </article>
       <% end %>
     <% end %>
   </div>
+  <% end %>
+<%= will_paginate  @pictures %>
+<section class="form">
+<%= form_for(@picture,
+                html: {multipart: true}) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <dl class="formList">
+    <%= f.hidden_field :article_id, :value => @article.id %>
+    <dd><%= f.file_field :image %></dd>
+  </dl>
+  <p><%= f.submit "写真追加", class: "btn btn-normal btn-primary" %></p>
 <% end %>
+</section>
+
 </div>
+</article>

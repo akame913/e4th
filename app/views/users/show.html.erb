@@ -1,6 +1,10 @@
 <% provide(:title, @user.name) %>
-<div class="row-fluid">
-  <h2><%= @user.name %></h2>
+<article id="contents">
+<header class="head">
+<h1><%= @user.name %></h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+</header>
+
 <% if @user.group_id == 1 %>
   <p>荏原第四中学校S44年卒同期会にようこそ</p>
 <% elsif @user.group_id == 2 then %>
@@ -61,4 +65,4 @@
     </p>
   <% end %>
 <% end %>
-</div>
+</article>

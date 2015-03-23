@@ -1,7 +1,25 @@
 <% if signed_in? %>
 <% if current_user.group_id == 1 %>
-  <h2>忘年会</h2>
-  <table class="commonTable">
+
+<article id="contents">
+<header class="head">
+<h1>荏原四中Ｓ４４年度卒同期会</h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+</header>
+<p>荏原四中昭和４４年度卒同期会ページにようこそ！<p>
+<p>
+  <%= link_to "１組名簿", "/find?fstr=31", class: "normalbtn" %>
+  <%= link_to "２組名簿", "/find?fstr=32", class: "normalbtn" %>
+  <%= link_to "３組名簿", "/find?fstr=33", class: "normalbtn" %>
+</p>
+<p>
+  <%= link_to "４組名簿", "/find?fstr=34", class: "normalbtn" %>
+  <%= link_to "５組名簿", "/find?fstr=35", class: "normalbtn" %>
+  <%= link_to "６組名簿", "/find?fstr=36", class: "normalbtn" %>
+</p>
+</article>
+
+<!--  <table class="commonTable">
     <tr>
       <th>日時</th>
         <td>
@@ -87,19 +105,49 @@
     </tr>
   </table>
   <hr> 
+-->
 <% elsif current_user.group_id == 2 then %>
-  <h2>都立高専10期会</h2>
+
+<article id="contents">
+<header class="head">
+<h1>都立高専１０期会</h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+</header>
+<p>都立高専１０期会ページにようこそ！<p>
+<p><%= link_to "名簿", "/find?fstr=", class: "normalbtn" %></p>
+</article>
+  
 <% elsif current_user.group_id == 3 then %>
-  <h2>パイオニア大森工場ＯＢ会</h2>
+
+<article id="contents">
+<header class="head">
+<h1>パイオニア大森工場ＯＢ会</h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+</header>
+<p>パイオニア大森工場ＯＢ会ページにようこそ！<p>
+<p><%= link_to "名簿", "/find?fstr=", class: "normalbtn" %></p>
+</article>
+  
 <% elsif current_user.group_id == 4 then %>
-  <h2>Home4</h2>
+
+<article id="contents">
+<header class="head">
+<h1>亀山家族会</h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧へ", articles_path, class: "bluebtn" %></p>
+</header>
+<p>亀山家族会ページにようこそ！<p>
+</article>
+
 <% end %>
 <% else %>
-  <!-- <div class="center hero-unit"> -->
-    <!-- <h1>Ebara 4thへようこそ</h1> -->
-    <p>本ページは同期会有志が運営しています。</p>
-    <p class="center">
-    <%= link_to "サインインしてください!", signin_path, class: "btn btn-normal btn-primary" %>
-    </p>
-  <!-- </div> -->
+<article id="contents">
+<header class="head">
+<h1>ホーム</h1>
+</header>
+<p>本ページは有志が仮運営しています。</p>
+<p>ご利用するにはサインインが必要です。</p>
+<p class="center">
+<%= link_to "サインインしてください!", signin_path, class: "btn btn-normal btn-primary" %>
+</p>
+</article>
 <% end %>

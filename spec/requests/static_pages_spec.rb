@@ -55,9 +55,9 @@ describe "Static pages" do
     expect(page).to have_title(full_title('サイト概要'))
     #click_link "ヘルプ"
     #expect(page).to have_title(full_title('ヘルプ'))
-    click_link "ホーム"
-    click_link "サインインしてください!"
-    expect(page).to have_title(full_title('サインイン'))
+    #click_link "ホーム"
+    #click_link "サインインしてください!"
+    #expect(page).to have_title(full_title('サインイン'))
   #  click_link "Documents"
   #  expect(page).to have_title(full_title('All documents'))
     #click_link "kame docs"

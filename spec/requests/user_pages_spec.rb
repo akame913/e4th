@@ -56,13 +56,17 @@ describe "User pages" do
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
 
-    before { visit user_path(user) }
-
+    before do
+      sign_in user
+      visit user_path(user)
+    end
+    
     it { should have_content(user.name) }
     it { should have_title(user.name) }
    end
 
   describe "new user page" do
+    let(:admin) { FactoryGirl.create(:admin) }
     before { visit new_user_path }
 
     it { should have_content('名簿追加') }
@@ -128,7 +132,7 @@ describe "User pages" do
     end
 
     describe "page" do
-      it { should have_content("プロフィール編集") }
+      it { should have_content("編集") }
       it { should have_title("編集") }
     end
 
