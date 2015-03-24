@@ -20,7 +20,7 @@ describe "Authentication" do
       before { click_button "サインイン" }
 
       it { should have_title('サインイン') }
-      it { should have_selector('div.alert.alert-error', text: 'Invalid') }
+      it { should have_selector('div.alert.alert-error', text: 'Name') }
 
       describe "after visiting another page" do
         before { click_link "ホーム" }

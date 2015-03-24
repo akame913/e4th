@@ -5,14 +5,31 @@
     <% else %>
       <%= user.family %>&nbsp;<%= user.given %>
     <% end %>
-    <% if user.maiden.present? %>
-      &nbsp;（<%= user.maiden %>）
-    <% end %>
+  </td>
+  <td>
+    <%= user.maiden %>
   </td>
   <td>
     <%= user.notes %>
   </td>
   <td>
-    <%= user.region %>
+    <% if user.region != nil %>
+      あり
+    <% end %>
+  </td>
+  <td>
+    <% if user.tel != nil %>
+      あり
+    <% end %>
+  </td>
+  <td>
+    <% if user.mobile != nil %>
+      あり
+    <% end %>
+  </td>
+  <td>
+    <% if user.email != nil %>
+      あり
+    <% end %>
   </td>
 </tr>

@@ -27,7 +27,7 @@
   </div>
   <% end %>
 <%= will_paginate  @pictures %>
-<% if current_user.name != "ebara4" && current_user.name != "tmtc" && current_user.name != "pioneer" %>
+<% if current_user.family != "GUEST" %>
   <section class="form">
   <%= form_for(@picture,
                   html: {multipart: true}) do |f| %>

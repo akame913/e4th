@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_back_or root_path
     else
-      flash.now[:error] = 'Invalid name/password combination'
+      flash.now[:error] = 'NameとPasswordが一致しません！'
       render 'new'
     end
   end

@@ -16,7 +16,7 @@
 <% else %>
   <h3>ようこそ</h3>
 <% end %>
-<% if @user.name != "ebara4" && @user.name != "tmtc" && @user.name != "pioneer" %>
+<% if (@user.family != "GUEST" || current_user.admin?) %>
   <table class="commonTable">
    <tr>
       <th>名前</th>

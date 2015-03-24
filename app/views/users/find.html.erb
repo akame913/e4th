@@ -5,8 +5,18 @@
 <p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
 <div id="articleArea">
-<table class="commonTable">
-<tr><th>名前</th><th>備考</th><th>住所</th></tr>
-  <%= render @users %>
+
+<table class="thx4Table">
+<tr>
+  <th class="x2">名前</th>
+  <th class="x1">新姓</th>
+  <th class="x1">備考</th>
+  <th class="x1">住所</th>
+  <th class="x1">電話</th>
+  <th class="x1">携帯</th>
+  <th class="x1">mail</th>
+</tr>
+<%= render @users %>
 </table>
+
 </article>

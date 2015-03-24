@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Ebara 4th!"
+      flash[:success] = "名簿が追加されました。"
       redirect_to @user
     else
       render 'new'
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "名簿が編集されました。"
       redirect_to @user
     else
       render 'edit'
