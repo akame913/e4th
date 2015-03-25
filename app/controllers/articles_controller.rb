@@ -8,6 +8,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @picture = @article.pictures.build
     @pictures = @article.pictures.paginate(page: params[:page], per_page: 5)
+    @image = @article.images.build
+    @images = @article.images.paginate(page: params[:page], per_page: 5)
   end
   
   def new

@@ -1,5 +1,8 @@
 E4th::Application.routes.draw do
 
+  resources :images do
+    get :download
+  end
   resources :pictures
   resources :articles
   resources :users  do

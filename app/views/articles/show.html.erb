@@ -6,36 +6,36 @@
 </header>
 <div id="articleArea">
 <%= markdown(@article.content) %>
-<%= will_paginate @pictures %>
+<%= will_paginate @images %>
   <% if @article.pictures.count > 0 %>
   <div id="pictureList">
-    <% @pictures.each do |pic| %>
-      <% if pic.image_file_name != nil %>
+    <% @images.each do |pic| %>
+      <% if pic.name != nil %>
       <article>
         <section>
-          <%= pic.image_file_name %> | <%= pic.user.name %>
+          <%= pic.name %> | <%= pic.user.name %>
           <% if (current_user.admin? || current_user.id == pic.user_id) %>
              | <%= link_to "削除", pic, method: :delete,
                                  data: { confirm: "本当に削除しますか?" } %>
           <% end %>
-          <p><%= image_tag pic.image.url(:medium) %></p>
-          <p class="btn"><%= link_to "拡大", pic.image.url(:original) %><p>
+          <p><img src="<%= image_download_path(pic) %>"/></p>
+          <p class="btn"><%= link_to "拡大", image_download_path(pic) %><p>
         </section>
       </article>
       <% end %>
     <% end %>
   </div>
   <% end %>
-<%= will_paginate  @pictures %>
+<%= will_paginate  @images %>
 <% if current_user.family != "GUEST" %>
   <section class="form">
-  <%= form_for(@picture,
-                  html: {multipart: true}) do |f| %>
+  <%= form_for(@image,
+                html: {multipart: true}) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <dl class="formList">
       <%= f.hidden_field :article_id, :value => @article.id %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
-      <dd><%= f.file_field :image %></dd>
+      <dd><%= f.file_field :uploaded_image %></dd>
     </dl>
     <p><%= f.submit "写真追加", class: "btn btn-normal btn-primary" %></p>
   <% end %>

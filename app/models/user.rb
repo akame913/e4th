@@ -1,6 +1,7 @@
 # encoding: utf-8
 #require 'csv'
 class User < ActiveRecord::Base
+  has_many :images
   has_many :pictures
   has_secure_password
   #before_save { self.email = email.downcase }
