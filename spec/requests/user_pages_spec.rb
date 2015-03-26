@@ -146,9 +146,9 @@ describe "User pages" do
       let(:new_name)  { "New Name" }
       let(:new_email) { "new@example.com" }
       before do
-        fill_in "登録名",             with: new_name
-        fill_in "メールアドレス",            with: new_email
-        fill_in "パスワード",         with: user.password
+        fill_in "登録名",         with: new_name
+        fill_in "メールアドレス", with: new_email
+        fill_in "パスワード",     with: user.password
         fill_in "確認パスワード", with: user.password
         click_button "編集保存"
       end

@@ -1,11 +1,31 @@
+# encoding: utf-8
 require 'spec_helper'
 
-describe "ImagePages" do
-  describe "GET /image_pages" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get image_pages_index_path
-      response.status.should be(200)
+describe "Image Pages" do
+  subject { page }
+
+  describe "index" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in user
+      visit pictures_path
+    end
+
+    it { should have_title('投稿写真') }
+    it { should have_content('投稿写真') }
+
+    describe "pagination" do
+
+      before(:all) { 10.times { FactoryGirl.create(:image) } }
+      after(:all)  { Image.delete_all }
+
+      #it { should have_selector('div.pagination') }
+
+      it "should list each image" do
+        Image.paginate(page: 1).each do |image|
+          #expect(page).to have_selector('section', text: image.name)
+        end
+      end
     end
   end
 end

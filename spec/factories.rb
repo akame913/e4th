@@ -39,4 +39,11 @@ FactoryGirl.define do
     article
     user
   end      
+
+  factory :image do
+    name "picture.png" 
+    content_type "image/png"
+    article
+    user
+  end      
 end
