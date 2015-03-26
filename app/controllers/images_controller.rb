@@ -21,7 +21,23 @@ class ImagesController < ApplicationController
 
   def download
     @image = Image.find(params[:image_id])
+    send_data(@image.data_m,
+              filename: @image.name,
+              type: @image.content_type,
+              disposition: "inline")
+  end
+
+  def download_max
+    @image = Image.find(params[:image_id])
     send_data(@image.data,
+              filename: @image.name,
+              type: @image.content_type,
+              disposition: "inline")
+  end
+
+  def download_small
+    @image = Image.find(params[:image_id])
+    send_data(@image.data_s,
               filename: @image.name,
               type: @image.content_type,
               disposition: "inline")

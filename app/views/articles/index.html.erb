@@ -3,18 +3,9 @@
 <header class="head">
 <h1>お知らせ一覧</h1>
 </header>
-<!--
-<div class="main">
-<article id="articleList">
--->
 <ul class = "users">
   <% @articles.each do |article| %>
     <li>
-<!--
-      <h3><%= article.created_at.strftime("%Y.%m.%d") %></h3>
-      <span><%= link_to article.title, article %></span>
-      <%= article.created_at.strftime("%Y.%m.%d") %>
--->
       <%= link_to article.title, article %>
       <% if current_user?(article.user_id) || current_user.admin? %>
         | <%= link_to "Edit", edit_article_path(article) %>
@@ -26,8 +17,4 @@
     </li>
   <% end %>
 </ul>
-<!--
-</article>
-</div>
--->
 </article>

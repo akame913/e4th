@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325095902) do
+ActiveRecord::Schema.define(version: 20150326080424) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -35,7 +35,11 @@ ActiveRecord::Schema.define(version: 20150325095902) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.binary   "data_m",       limit: 1048576
+    t.binary   "data_s",       limit: 1048576
   end
+
+  add_index "images", ["article_id", "created_at"], name: "index_images_on_article_id_and_created_at"
 
   create_table "pictures", force: true do |t|
     t.integer  "article_id"

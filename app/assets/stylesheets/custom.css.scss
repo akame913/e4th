@@ -584,6 +584,42 @@ left:0;
 bottom:10px;
 }
 
+#pictureArea{
+}
+
+#pictureArea header{
+}
+
+#pictureArea header time{
+display:block;
+margin:0 0 3px 0;
+font-size:10px;
+color:#666;
+}
+
+#pictureArea header h1{
+margin:0 0 14px 0;
+padding:0 0 7px 0;
+font-size:12px;
+font-weight:bold;
+color:#069;
+border-bottom:#ddd dotted 1px;
+}
+
+#pictureArea section{
+margin:0 0 14px 0;
+padding:0 0 16px 0;
+font-size:10px;
+line-height:1.6;
+border-bottom:#ddd dotted 1px;
+}
+
+#pictureArea section img{
+float:left;
+width:100%;
+//padding:0 10px 6px 0;
+}
+
 /*------------------------------------------------
    Article
 ------------------------------------------------*/

@@ -1,23 +1,20 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container-fluid">
-    <% if signed_in? %>
-      <% if current_user.group_id == 1 %>
-        <%= link_to "四中", root_path, id: "logo"  %>
-      <% elsif current_user.group_id == 2 then %>
-        <%= link_to "高専", root_path, id: "logo"  %>
-      <% elsif current_user.group_id == 3 then %>
-        <%= link_to "Ｐ大森", root_path, id: "logo"  %>
-      <% elsif current_user.group_id == 4 then %>
-        <%= link_to "亀山", root_path, id: "logo"  %>
+      <% if signed_in? %>
+        <% if current_user.group_id == 1 %>
+          <%= link_to "四中", root_path, id: "logo"  %>
+        <% elsif current_user.group_id == 2 then %>
+          <%= link_to "高専", root_path, id: "logo"  %>
+        <% elsif current_user.group_id == 3 then %>
+          <%= link_to "Ｐ大森", root_path, id: "logo"  %>
+        <% elsif current_user.group_id == 4 then %>
+          <%= link_to "亀山", root_path, id: "logo"  %>
+        <% end %>
       <% end %>
-    <% end %>
       <nav>            
         <ul class="nav pull-right">
           <li><%= link_to "ホーム",      root_path %></li>
-<!--
-          <li><%= link_to "ヘルプ",      help_path %></li>
--->
           <% if signed_in? %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -28,18 +25,8 @@
                 <% if current_user.family != "GUEST" %>
                   <li><%= link_to "マイ写真", images_path %></li>
                 <% end %>
-
-<!--
-                <li><%= link_to "アルバム",  "#" %></li>
-                <li><%= link_to "写真",      "#" %></li>
--->
                 <li class="divider"></li>
                 <li><%= link_to "プロフィール", current_user %></li>
-<!--
-                <% if current_user.family != "GUEST" %>
-                  <li><%= link_to "編集", edit_user_path(current_user) %></li>
-                <% end %>
--->
                 <% if current_user.admin? %>
                   <li><%= link_to "お知らせ登録", new_article_path %></li>
                   <li><%= link_to "全名簿", users_path %></li>

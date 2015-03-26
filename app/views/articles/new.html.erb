@@ -13,10 +13,7 @@
 
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :group_id, :value => current_user.group_id %>
-<!--
-      <dt><%= f.label :date, "日付" %></dt>
-      <dd><%= f.text_field :date %></dd>
--->
+
       <dt><%= f.label :content, "内容" %></dt>
       <dd><%= f.text_area :content, rows: 6 %><dd>
      </dl>

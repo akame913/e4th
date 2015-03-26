@@ -1,5 +1,9 @@
 # encoding: utf-8
 
+# config/environment.rbに記入済み
+#require 'rubygems'
+#require 'RMagick'
+
 class Image < ActiveRecord::Base
   belongs_to :user
   belongs_to :article
@@ -13,7 +17,17 @@ class Image < ActiveRecord::Base
   def uploaded_image=(image_field)
     self.name         = base_part_of(image_field.original_filename)
     self.content_type = image_field.content_type.chomp
-    self.data         = image_field.read
+    # RMagickで画像取得後リサイズしてバイナリ返還後dataセーブ
+    img = Magick::Image.from_blob(image_field.read).shift
+    img64 = img.resize_to_fit(640,640)
+    img30 = img.resize_to_fit(300,300)
+    img10 = img.resize_to_fit(100,100)
+    binary64 = img64.to_blob  # 画像からバイナリを取得する
+    binary30 = img30.to_blob  # 画像からバイナリを取得する
+    binary10 = img10.to_blob  # 画像からバイナリを取得する
+    self.data   = binary64
+    self.data_m = binary30
+    self.data_s = binary10
   end
 
   def base_part_of(file_name)

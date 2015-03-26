@@ -2,6 +2,8 @@ E4th::Application.routes.draw do
 
   resources :images do
     get :download
+    get :download_max
+    get :download_small
   end
   resources :pictures
   resources :articles
@@ -11,6 +13,8 @@ E4th::Application.routes.draw do
   resources :sessions,      only: [:new, :create, :destroy]
   
   root  'static_pages#home'
+  match '/image_max',   to: 'images#download_max',      via: 'get'
+  match '/image_min',   to: 'images#download_min',      via: 'get'
   match '/find',        to: 'users#find',               via: 'get'
   match '/csv',         to: 'users#csv',                via: 'get'
   match '/signup',      to: 'users#new',                via: 'get'
