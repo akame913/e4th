@@ -9,9 +9,13 @@
   <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <dl class="formList">
-    <dt><%= f.label :name, "登録名" %></dt>
-    <dd><%= f.text_field :name %></dd>
-
+    <% if current_user.admin? %>
+      <dt><%= f.label :name, "登録名" %></dt>
+      <dd><%= f.text_field :name %></dd>
+    <% else %>
+      <%= f.hidden_field :name, :value => current_user.name %>
+    <% end %>
+    
     <dt><%= f.label :family, "姓" %></dt>
     <dd><%= f.text_field :family %></dd>
 

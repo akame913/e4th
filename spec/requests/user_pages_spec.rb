@@ -125,7 +125,8 @@ describe "User pages" do
   end
 
   describe "edit" do
-    let(:user) { FactoryGirl.create(:user) }
+    #登録名の変更はadminのみ
+    let(:user) { FactoryGirl.create(:admin) }
     before do
       sign_in user
       visit edit_user_path(user)
