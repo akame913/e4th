@@ -2,7 +2,9 @@
   <div class="navbar-inner">
     <div class="container-fluid">
       <% if signed_in? %>
-        <% if current_user.group_id == 1 %>
+        <% if current_user.group_id == 0 %>
+          <%= link_to "NEWS913", root_path, id: "logo"  %>
+        <% elsif current_user.group_id == 1 %>
           <%= link_to "四中", root_path, id: "logo"  %>
         <% elsif current_user.group_id == 2 then %>
           <%= link_to "高専", root_path, id: "logo"  %>

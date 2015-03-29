@@ -1,6 +1,18 @@
 <% if signed_in? %>
 
-<% if current_user.group_id == 1 %>
+<% if current_user.group_id == 0 %>
+<article id="contents">
+<header class="head">
+<h1>NEWS913</h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+</header>
+<p>NEWS913ページにようこそ！<p>
+<p>ゲストユーザーでサインしている場合はお知らせ閲覧のみとなっております。
+お知らせ写真追加はできません。正規ユーザーでサインしてください。</p>
+<p>また、お知らせの新規登録は本サイトの管理者のみとしております。</p>
+</article>
+
+<% elsif current_user.group_id == 1 %>
 <article id="contents">
 <header class="head">
 <h1>荏原四中Ｓ４４年度卒同期会</h1>
@@ -132,7 +144,7 @@
 <header class="head">
 <h1>ホーム</h1>
 </header>
-<p>本ページは有志が仮運営しています。</p>
+<p>「お知らせ・写真」のサイトです。<br/>
 <p class="warning">ご利用するにはサインインが必要です。</p>
 <p class="center">
 <%= link_to "サインインしてください!", signin_path, class: "btn btn-normal btn-primary" %>

@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 def full_title(page_title)
-  base_title = "同期会"
+  base_title = "NEWS913"
   if page_title.empty?
     base_title
   else

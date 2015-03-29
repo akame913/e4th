@@ -51,8 +51,8 @@ describe "Static pages" do
 
   it "should have the right links on the layout" do
     visit root_path
-    click_link "サイト概要"
-    expect(page).to have_title(full_title('サイト概要'))
+    click_link "サイト"
+    expect(page).to have_title(full_title('サイト'))
     #click_link "ヘルプ"
     #expect(page).to have_title(full_title('ヘルプ'))
     #click_link "ホーム"
