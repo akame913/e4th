@@ -21,6 +21,7 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.new(micropost_params)
     if @micropost.save
       flash[:success] = "一言写真が登録されました!"
+      PostMailer.post_email(current_user, @micropost).deliver
       redirect_to root_url
     else
 #      @feed_items = []

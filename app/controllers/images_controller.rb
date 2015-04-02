@@ -12,6 +12,7 @@ class ImagesController < ApplicationController
     @image = Image.new(image_params)
     if @image.save
       flash[:success] = "写真が登録されました!"
+      PostMailer.post_email(current_user, @image).deliver
       redirect_to  article_path(@image.article_id)
     else
       flash[:error] = "写真登録に失敗しました!"
