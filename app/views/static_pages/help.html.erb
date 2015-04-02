@@ -4,34 +4,167 @@
 <h1>ヘルプ</h1>
 <p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
+<p>「<strong>お知らせ一覧</strong>」をクリックして閲覧したい「<strong>お知らせ</strong>」を選択して
+<strong>写真を閲覧</strong>できます。</p>
+<p>その他の機能は「<strong>メニュー</strong>」をクリックして選択してください。
+詳細は下記<strong>【各ページ機能概要】</strong>を参照してください。</p>
+<% if signed_in? %>
+
+<% if current_user.group_id == 0 %>
+<p>ゲストユーザーでサインしている場合はお知らせ閲覧のみとなっております。
+お知らせ写真追加はできません。正規ユーザーでサインしてください。
+また、お知らせの新規登録は本サイトの管理者のみとしております。</p>
+<p><strong>【サインイン方法】</strong></p>
+<dl>
+ <dt>Name</dt>
+  <dd>
+    登録名を入力してください<br/>
+  </dd>
+ <dt>Password</dt>
+    登録パスワードを入力してください
+  </dd>
+</dl>
+
+<% elsif current_user.group_id == 1 %>
+<p>
+  <%= link_to "１組名簿", "/find?fstr=31", class: "normalbtn" %>
+  <%= link_to "２組名簿", "/find?fstr=32", class: "normalbtn" %>
+  <%= link_to "３組名簿", "/find?fstr=33", class: "normalbtn" %>
+</p>
+<p>
+  <%= link_to "４組名簿", "/find?fstr=34", class: "normalbtn" %>
+  <%= link_to "５組名簿", "/find?fstr=35", class: "normalbtn" %>
+  <%= link_to "６組名簿", "/find?fstr=36", class: "normalbtn" %>
+</p>
+<p>ゲストユーザー（ebara4）でサインしている場合はお知らせ閲覧のみとなっております。
+お知らせ写真追加はできません。正規ユーザーでサインしてください。
+また、お知らせの新規登録は本サイトの管理者のみとしております。
+追加・修正がある場合は管理者（１組亀山）までご連絡願います。</p>
+<p class="warning">不明な点はメールでご連絡願います。<br/>
+<%= mail_to 'akame913@gmail.com', "１組亀山メール" %></p>
+<p><strong>【サインイン方法】</strong></p>
+<dl>
+ <dt>Name</dt>
+  <dd>
+    卒業学年：3固定、クラス：1〜6、名簿名前<br/>
+    例）3年2組山田太郎　ー＞　32山田太郎<br/>
+    ※数字は半角です。<br/>
+    ※名簿名前は上記名簿ボタンをクッリクして確認してください。<br/>
+    ※名簿は卒業アルバムを参考にしております。<br/>
+    ※登録されている表記漢字です。
+  </dd>
+ <dt>Password</dt>
+  <dd>
+    卒業学年：3固定、クラス：1〜6、姓（ローマ字ヘボン式）<br/>
+    例）3年2組山田太郎　ー＞　32yamada<br/>
+    ※数字は半角、ローマ字は半角小文字です。<br/>
+    ※斉藤 ー＞ saitoh
+  </dd>
+</dl>
+
+<% elsif current_user.group_id == 2 then %>
+<p>
+  <%= link_to "１組名簿", "/find?fstr=51", class: "normalbtn" %>
+  <%= link_to "２組名簿", "/find?fstr=52", class: "normalbtn" %>
+</p>
+<p>
+  <%= link_to "３組名簿", "/find?fstr=53", class: "normalbtn" %>
+  <%= link_to "４組名簿", "/find?fstr=54", class: "normalbtn" %>
+</p>
+<p>ゲストユーザー（tmtc10）でサインしている場合はお知らせ閲覧のみとなっております。
+お知らせ写真追加はできません。正規ユーザーでサインしてください。
+また、お知らせの新規登録は本サイトの管理者（４組亀山）のみとしております。
+追加・修正がある場合は管理者までご連絡願います。</p>
+<p class="warning">不明な点はメールでご連絡願います。<br/>
+<%= mail_to 'akame913@gmail.com', "４組亀山メール" %></p>
+<p><strong>【サインイン方法】</strong></p>
+<dl>
+ <dt>Name</dt>
+  <dd>
+    卒業学年：5固定、クラス：1〜4、名簿名前<br/>
+    例）5年2組山田太郎　ー＞　52山田太郎<br/>
+    ※数字は半角です。<br/>
+    ※名簿名前は上記名簿ボタンをクッリクして確認してください。<br/>
+    ※名簿はBig10同期会・クラス会名簿を参考にしております。<br/>
+    ※登録されている表記漢字です。
+  </dd>
+ <dt>Password</dt>
+  <dd>
+    卒業学年：5固定、クラス：1〜4、姓（ローマ字ヘボン式）<br/>
+    例）5年2組山田太郎　ー＞　52yamada<br/>
+    ※数字は半角、ローマ字は半角小文字です。<br/>
+    ※斉藤 ー＞ saitoh
+  </dd>
+</dl>
+  
+<% elsif current_user.group_id == 3 then %>
+<p><%= link_to "名簿", "/find?fstr=", class: "normalbtn" %></p>
+<p>ゲストユーザー（pioneer）でサインしている場合はお知らせ閲覧のみとなっております。
+お知らせ写真追加はできません。正規ユーザーでサインしてください。
+また、お知らせの新規登録は本サイトの管理者のみとしております。
+追加・修正がある場合は管理者（亀山）までご連絡願います。</p>
+<p class="warning">不明な点はメールでご連絡願います。<br/>
+<%= mail_to 'akame913@gmail.com', "亀山メール" %></p>
+<p><strong>【サインイン方法】</strong></p>
+<dl>
+ <dt>Name</dt>
+  <dd>
+    po(pioneer ohmori)固定、名簿名前<br/>
+    例）山田太郎　ー＞　po山田太郎<br/>
+    ※数字は半角です。<br/>
+    ※名簿名前は上記名簿ボタンをクッリクして確認してください。<br/>
+    ※登録されている表記漢字です。
+  </dd>
+ <dt>Password</dt>
+  <dd>
+    po固定、姓（ローマ字ヘボン式）<br/>
+    例）山田太郎　ー＞　poyamada<br/>
+    ※数字は半角、ローマ字は半角小文字です。<br/>
+    ※斉藤 ー＞ saitoh
+  </dd>
+</dl>  
+
+<% elsif current_user.group_id == 4 then %>
+<p><strong>【サインイン方法】</strong></p>
+<dl>
+ <dt>Name</dt>
+  <dd>
+    登録名を入力してください<br/>
+  </dd>
+ <dt>Password</dt>
+    登録パスワードを入力してください
+  </dd>
+</dl>
+
+<% end %>
 <p><strong>【各ページ機能概要】</strong></p>
 <dl>
- <dt>サインイン方法</dt>
-  <dd>
-    Name:登録名を入力してください<br/>
-    Password:登録パスワードを入力してください
-  </dd>
  <dt>お知らせ</dt>
   <dd>
-    お知らせの追加・編集は現状、サイト管理者のみとしております。
-    追加・編集ご希望の場合は管理者にメールで依頼してください。<br/>
+    お知らせの追加・編集は現状、サイト管理者のみとしております。<br/>
+    追加・編集ご希望の場合は管理者にメールで依頼してください。
     写真投稿は正規ユーザーの方のみ可能です。
-    写真削除は投稿したユーザーのみ可能です。<br/>
+    写真削除は投稿したユーザーのみ可能です。
+  </dd>
+ <dt>マイ一言</dt>
+  <dd>
+    正規ユーザーが一言写真投稿した自分の一言写真一覧を表示します。<br/>
+    一言写真削除が可能です。但し、削除した場合はホームの一言写真も削除されます。
   </dd>
  <dt>マイ写真</dt>
   <dd>
     正規ユーザーが写真投稿した自分の写真一覧を表示します。<br/>
-    写真削除が可能です。但し、削除した場合はお知らせで表示されている写真も削除されます。<br/>
+    写真削除が可能です。但し、削除した場合はお知らせで表示されている写真も削除されます。
   </dd>
  <dt>プロフィール</dt>
   <dd>
     正規ユーザーの方は編集可能です。<br/>
-    名簿整理の意味も含めて登録をお願いします。<br/>
+    名簿整理の意味も含めて登録をお願いします。
     名簿一覧では各項目登録の「あり」表示しかしません。
   </dd>
  <dt>サインアウト</dt>
   <dd>
-    閲覧終了した場合はサインアウトしてください。<br/>
+    閲覧終了した場合はサインアウトしてください。
   </dd>
 </dl>
 <p><strong>【お知らせ登録マークダウン】</strong></p>
@@ -108,3 +241,25 @@
       [3]: http://search.msn.com/    "MSN Search"
     </dd>
 </dl>
+<% else %>
+<dl>
+ <dt>Name</dt>
+  <dd>
+    登録名を入力してください<br/>
+  </dd>
+ <dt>Password</dt>
+    登録パスワードを入力してください
+  </dd>
+</dl>
+
+<p class="warning">ご利用するにはサインインが必要です。</p>
+<p class="center">
+<%= link_to "サインインしてください!", signin_path, class: "btn btn-normal btn-primary" %>
+</p>
+
+<% end %>
+</article>
+
+<script><!--
+$("p.warning").css( "color", "red" );
+//--></script>

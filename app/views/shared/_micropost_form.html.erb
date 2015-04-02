@@ -1,0 +1,15 @@
+<section class="form">
+<%= form_for(@micropost,
+                html: {multipart: true}) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <dl class="formList">
+    <dt><%= f.label :content, "何か一言どうぞ...140文字まで" %></dt>
+    <dd><%= f.text_area :content, placeholder: "一言..." %></dd>
+    <%= f.hidden_field :group_id, :value => current_user.group_id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <dt><%= f.label :content, "写真選択" %></dt>
+    <dd><%= f.file_field :uploaded_image %></dd>
+  </dl>
+  <p><%= f.submit "一言写真追加", class: "btn btn-normal btn-primary" %></p>
+<% end %>
+</section>

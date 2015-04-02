@@ -1,0 +1,14 @@
+<% provide(:title, @micropost.name) %>
+<article id="contents">
+<header class="head">
+<h1><%= @micropost.name %></h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+</header>
+<div id="pictureArea">
+<article>
+<section>
+<p><img src="<%= micropost_download_max_path(@micropost) %>"/></p>
+</section>
+</article>
+</div>
+</article>

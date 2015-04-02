@@ -14,24 +14,18 @@ describe "Static pages" do
 
     describe "for signed-in users" do
       let(:user) { FactoryGirl.create(:user) }
+      let!(:m1) { FactoryGirl.create(:micropost, user: user, group_id: 1, content: "Foo") }
+      let!(:m2) { FactoryGirl.create(:micropost, user: user, group_id: 1, content: "Bar") }
+
       before do
-    #    FactoryGirl.create(:document, user: user, name: "Name1",
-    #                          description: "Des1",
-    #                          data: "Data1",
-    #                          content_type: "text/plain")
-    #    FactoryGirl.create(:document, user: user, name: "Name2",
-    #                          description: "Des2",
-    #                          data: "Data2",
-    #                          content_type: "text/plain")
         sign_in user
         visit root_path
       end
 
-    #  it "should render the user's document" do
-    #    user.documents.each do |item|
-    #      expect(page).to have_link("Download")
-    #    end
-    #  end
+      describe "microposts" do
+        it { should have_content(m1.content) }
+        it { should have_content(m2.content) }
+      end
     end
   end
 

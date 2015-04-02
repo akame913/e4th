@@ -1,0 +1,12 @@
+<% provide(:title, 'マイ一言') %>
+<article id="contents">
+<header class="head">
+<h1>マイ一言</h1>
+<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+</header>
+<div id="postArea">
+<%= will_paginate @microposts %>
+  <%= render @microposts %>
+<%= will_paginate @microposts %>
+</div>
+</article>

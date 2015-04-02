@@ -8,11 +8,11 @@ describe "Image Pages" do
     let(:user) { FactoryGirl.create(:user) }
     before do
       sign_in user
-      visit pictures_path
+      visit images_path
     end
 
-    it { should have_title('投稿写真') }
-    it { should have_content('投稿写真') }
+    it { should have_title('マイ写真') }
+    it { should have_content('マイ写真') }
 
     describe "pagination" do
 

@@ -1,156 +1,69 @@
+<article id="contents">
+
 <% if signed_in? %>
 
 <% if current_user.group_id == 0 %>
-<article id="contents">
 <header class="head">
 <h1>NEWS913</h1>
 <p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
 <p>NEWS913ページにようこそ！<p>
-<p>ゲストユーザーでサインしている場合はお知らせ閲覧のみとなっております。
-お知らせ写真追加はできません。正規ユーザーでサインしてください。</p>
-<p>また、お知らせの新規登録は本サイトの管理者のみとしております。</p>
-</article>
+
 
 <% elsif current_user.group_id == 1 %>
-<article id="contents">
 <header class="head">
 <h1>荏原四中Ｓ４４年度卒同期会</h1>
 <p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
 <p>荏原四中昭和４４年度卒同期会ページにようこそ！<p>
-<p>ゲストユーザー（ebara4）でサインしている場合はお知らせ閲覧のみとなっております。
-お知らせ写真追加はできません。正規ユーザーでサインしてください。</p>
-<p>また、お知らせの新規登録は本サイトの管理者のみとしております。追加・修正がある場合は管理者（１組亀山）までご連絡願います。</p>
-<p>正規ユーザーのサインインの初期登録は以下の内容となっております。</p>
-<dl>
- <dt>Name</dt>
-  <dd>
-    卒業学年：3固定、クラス：1〜6、名簿名前<br/>
-    例）3年2組山田太郎　ー＞　32山田太郎<br/>
-    ※数字は半角です。<br/>
-    ※名簿名前は下記名簿ボタンをクッリクして確認してください。<br/>
-    ※名簿は卒業アルバムを参考にしております。<br/>
-    ※登録されている表記漢字です。
-  </dd>
- <dt>Password</dt>
-  <dd>
-    卒業学年：3固定、クラス：1〜6、姓（ローマ字ヘボン式）<br/>
-    例）3年2組山田太郎　ー＞　32yamada<br/>
-    ※数字は半角、ローマ字は半角小文字です。<br/>
-    ※斉藤 ー＞ saitoh
-  </dd>
-</dl>
-<p class="warning">不明な点はメールでご連絡願います。<br/>
-<%= mail_to 'akame913@gmail.com', "１組亀山メール" %></p>
-<p>
-  <%= link_to "１組名簿", "/find?fstr=31", class: "normalbtn" %>
-  <%= link_to "２組名簿", "/find?fstr=32", class: "normalbtn" %>
-  <%= link_to "３組名簿", "/find?fstr=33", class: "normalbtn" %>
-</p>
-<p>
-  <%= link_to "４組名簿", "/find?fstr=34", class: "normalbtn" %>
-  <%= link_to "５組名簿", "/find?fstr=35", class: "normalbtn" %>
-  <%= link_to "６組名簿", "/find?fstr=36", class: "normalbtn" %>
-</p>
-</article>
 
 <% elsif current_user.group_id == 2 then %>
-<article id="contents">
 <header class="head">
 <h1>都立高専１０期会</h1>
 <p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
 <p>都立高専１０期会ページにようこそ！<p>
-<p>ゲストユーザー（tmtc10）でサインしている場合はお知らせ閲覧のみとなっております。
-お知らせ写真追加はできません。正規ユーザーでサインしてください。</p>
-<p>また、お知らせの新規登録は本サイトの管理者（４組亀山）のみとしております。追加・修正がある場合は管理者までご連絡願います。</p>
-<p>正規ユーザーのサインインの初期登録は以下の内容となっております。</p>
-<dl>
- <dt>Name</dt>
-  <dd>
-    卒業学年：5固定、クラス：1〜4、名簿名前<br/>
-    例）5年2組山田太郎　ー＞　52山田太郎<br/>
-    ※数字は半角です。<br/>
-    ※名簿名前は下記名簿ボタンをクッリクして確認してください。<br/>
-    ※名簿はBig10同期会・クラス会名簿を参考にしております。<br/>
-    ※登録されている表記漢字です。
-  </dd>
- <dt>Password</dt>
-  <dd>
-    卒業学年：5固定、クラス：1〜4、姓（ローマ字ヘボン式）<br/>
-    例）5年2組山田太郎　ー＞　52yamada<br/>
-    ※数字は半角、ローマ字は半角小文字です。<br/>
-    ※斉藤 ー＞ saitoh
-  </dd>
-</dl>
-<p class="warning">不明な点はメールでご連絡願います。<br/>
-<%= mail_to 'akame913@gmail.com', "４組亀山メール" %></p>
-<p>
-  <%= link_to "１組名簿", "/find?fstr=51", class: "normalbtn" %>
-  <%= link_to "２組名簿", "/find?fstr=52", class: "normalbtn" %>
-</p>
-<p>
-  <%= link_to "３組名簿", "/find?fstr=53", class: "normalbtn" %>
-  <%= link_to "４組名簿", "/find?fstr=54", class: "normalbtn" %>
-</p>
-</article>
   
 <% elsif current_user.group_id == 3 then %>
-<article id="contents">
 <header class="head">
 <h1>パイオニア大森工場ＯＢ会</h1>
 <p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
 <p>パイオニア大森工場ＯＢ会ページにようこそ！<p>
-<p>ゲストユーザー（pioneer）でサインしている場合はお知らせ閲覧のみとなっております。
-お知らせ写真追加はできません。正規ユーザーでサインしてください。</p>
-<p>また、お知らせの新規登録は本サイトの管理者のみとしております。追加・修正がある場合は管理者（亀山）までご連絡願います。</p>
-<p>正規ユーザーのサインインの初期登録は以下の内容となっております。</p>
-<dl>
- <dt>Name</dt>
-  <dd>
-    po(pioneer ohmori)固定、名簿名前<br/>
-    例）山田太郎　ー＞　po山田太郎<br/>
-    ※数字は半角です。<br/>
-    ※名簿名前は下記名簿ボタンをクッリクして確認してください。<br/>
-    ※登録されている表記漢字です。
-  </dd>
- <dt>Password</dt>
-  <dd>
-    po固定、姓（ローマ字ヘボン式）<br/>
-    例）山田太郎　ー＞　poyamada<br/>
-    ※数字は半角、ローマ字は半角小文字です。<br/>
-    ※斉藤 ー＞ saitoh
-  </dd>
-</dl>
-<p class="warning">不明な点はメールでご連絡願います。<br/>
-<%= mail_to 'akame913@gmail.com', "亀山メール" %></p>
-<p><%= link_to "名簿", "/find?fstr=", class: "normalbtn" %></p>
-</article>
   
 <% elsif current_user.group_id == 4 then %>
-<article id="contents">
 <header class="head">
 <h1>亀山家族会</h1>
 <p class="rightbtn"><%= link_to "お知らせ一覧へ", articles_path, class: "bluebtn" %></p>
 </header>
 <p>亀山家族会ページにようこそ！<p>
-</article>
 
 <% end %>
+<strong>使用方法・名簿</strong>などは<%= link_to "こちらのページへ",   help_path %>
+<header class="head">
+<h1>一言写真</h1>
+</header>
+<div id="postArea">
+<%= will_paginate @microposts %>
+  <%= render @microposts %>
+<%= will_paginate @microposts %>
+<% if current_user.family != "GUEST" %>
+  <%= render 'shared/micropost_form' %>
+<% end %>
+</div>
+
 <% else %>
-<article id="contents">
 <header class="head">
 <h1>ホーム</h1>
 </header>
-<p>「お知らせ・写真」のサイトです。<br/>
+<p>「お知らせ・写真」のサイトです。</p>
 <p class="warning">ご利用するにはサインインが必要です。</p>
 <p class="center">
 <%= link_to "サインインしてください!", signin_path, class: "btn btn-normal btn-primary" %>
 </p>
-</article>
 <% end %>
+</article>
+
 <script><!--
 $("p.warning").css( "color", "red" );
 //--></script>

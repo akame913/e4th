@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326080424) do
+ActiveRecord::Schema.define(version: 20150402010110) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -40,6 +40,21 @@ ActiveRecord::Schema.define(version: 20150326080424) do
   end
 
   add_index "images", ["article_id", "created_at"], name: "index_images_on_article_id_and_created_at"
+
+  create_table "microposts", force: true do |t|
+    t.string   "content"
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.binary   "photo",        limit: 1048576
+    t.binary   "photo_m",      limit: 1048576
+    t.binary   "photo_s",      limit: 1048576
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "content_type"
+  end
+
+  add_index "microposts", ["group_id", "user_id", "created_at"], name: "index_microposts_on_group_id_and_user_id_and_created_at"
 
   create_table "pictures", force: true do |t|
     t.integer  "article_id"

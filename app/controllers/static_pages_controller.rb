@@ -2,6 +2,8 @@
 
 class StaticPagesController < ApplicationController
   def home
+    @microposts = Micropost.where(group_id: current_user.group_id).order("created_at DESC").paginate(page: params[:page], per_page: 5) if signed_in?
+    @micropost = current_user.microposts.build if signed_in?
   end
 
   def help
