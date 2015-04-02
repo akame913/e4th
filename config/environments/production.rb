@@ -84,7 +84,7 @@ E4th::Application.configure do
 	  port:      	           587,
 	  domain:                'example.com',
 	  user_name:             'akame913@gmail.com',
-	  password:              'kamegmail1020',
+	  password:              'rfcuscxyvkuifkke',
 	  authentication:        'plain',
 	  enable_starttls_auto:  true
   }
