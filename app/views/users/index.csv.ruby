@@ -15,7 +15,8 @@ CSV.generate do |csv|
     '携帯番号'       => ->(u){ u.mobile },
     '備考'           => ->(u){ u.notes },
     'メールアドレス' => ->(u){ u.email },
-    '管理権限'       => ->(u){ u.admin }
+    '管理権限'       => ->(u){ u.admin },
+    'グループ'       => ->(u){ u.group_id }
   }
 
   # header

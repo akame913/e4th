@@ -13,22 +13,22 @@
     <%= user.notes %>
   </td>
   <td>
-    <% if user.region != nil %>
+    <% if user.region != nil && user.region != "" %>
       あり
     <% end %>
   </td>
   <td>
-    <% if user.tel != nil %>
+    <% if user.tel != nil && user.tel != "" %>
       あり
     <% end %>
   </td>
   <td>
-    <% if user.mobile != nil %>
+    <% if user.mobile != nil && user.mobile != "" %>
       あり
     <% end %>
   </td>
   <td>
-    <% if user.email != nil %>
+    <% if user.email != nil && user.email != "" %>
       あり
     <% end %>
   </td>
