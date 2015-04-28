@@ -2,12 +2,17 @@
 <article id="contents">
 <header class="head">
 <h1>ヘルプ</h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
-<p>「<strong>お知らせ一覧</strong>」をクリックして閲覧したい「<strong>お知らせ</strong>」を選択して
+<div class="main">
+<div id="helpArea">
+
+<section class="first">
+
+<p>「<strong>お知らせ</strong>」をクリックして閲覧したい「<strong>お知らせ</strong>」を選択して
 <strong>写真を閲覧</strong>できます。</p>
 <p>その他の機能は「<strong>メニュー</strong>」をクリックして選択してください。
 詳細は下記<strong>【各ページ機能概要】</strong>を参照してください。</p>
+
 <% if signed_in? %>
 
 <% if current_user.group_id == 0 %>
@@ -146,6 +151,12 @@
     写真投稿は正規ユーザーの方のみ可能です。
     写真削除は投稿したユーザーのみ可能です。
   </dd>
+ <dt>文書一覧</dt>
+  <dd>
+    「保存」で文書ファイルがダウンロードされます。<br/>
+    文書一覧の追加・編集は現状、サイト管理者のみとしております。<br/>
+    追加・編集ご希望の場合は管理者にメールで依頼してください。
+  </dd>
  <dt>マイ一言</dt>
   <dd>
     正規ユーザーが一言写真投稿した自分の一言写真一覧を表示します。<br/>
@@ -258,6 +269,10 @@
 </p>
 
 <% end %>
+</section>
+
+</div>
+</div>
 </article>
 
 <script><!--

@@ -4,8 +4,10 @@
 <h1>投稿写真</h1>
 <p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
+<div class="main">
+
 <div id="articleArea">
-<%= will_paginate @pictures %>
+<%= will_paginate @pictures, previous_label: "前ページ", next_label: "次ページ" %>
 <div id="pictureList">
     <% @pictures.each do |pic| %>
       <% if pic.image_file_name != nil %>
@@ -23,6 +25,8 @@
       <% end %>
     <% end %>
 </div>
-<%= will_paginate @pictures %>
+<%= will_paginate @pictures, previous_label: "前ページ", next_label: "次ページ" %>
+</div>
+
 </div>
 </article>

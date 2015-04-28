@@ -1,14 +1,13 @@
-<% provide(:title, @image.name) %>
+<% provide(:title, 'お知らせ拡大') %>
 <article id="contents">
 <header class="head">
 <h1><%= @image.name %></h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
+<div class="main">
 <div id="pictureArea">
-<article>
 <section>
 <p><img src="<%= image_download_max_path(@image) %>"/></p>
 </section>
-</article>
+</div>
 </div>
 </article>

@@ -1,11 +1,11 @@
-<% provide(:title, '名簿') %>
+<% provide(:title, '全名簿') %>
 <article id="contents">
 <header class="head">
-<h1>名簿</h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
+<h1>全名簿</h1>
 </header>
+<div class="main">
 
-<%= will_paginate %>
+<%= will_paginate @users, previous_label: "前ページ", next_label: "次ページ" %>
 <table class="thx4Table">
 <tr>
   <th class="x2">名前</th>
@@ -18,7 +18,7 @@
 </tr>
 <%= render @users %>
 </table>
-<%= will_paginate %>
+<%= will_paginate @users, previous_label: "前ページ", next_label: "次ページ" %>
 
 <%= link_to 'エキスポート', users_path(format: :csv) %>
 <!-- ページの一番下に追加 -->
@@ -26,4 +26,6 @@
   <%= file_field_tag :file %>
   <%= submit_tag "インポート" %>
 <% end %>
+
+</div>
 </article>

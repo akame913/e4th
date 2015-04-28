@@ -6,14 +6,11 @@
                                  data: { confirm: "本当に削除しますか?" },
                                  title: micropost.content %>
   <% end %>
-  <% if micropost.name != nil %>
-    | <%= link_to "拡大", micropost_path(micropost) %><p>
-  <% end %>
 </time>
-<section>
+<section class="content">
   <% if micropost.name != nil %>
     <p class='cf'>
-      <img src="<%= micropost_download_small_path(micropost) %>"/>
+      <a href="<%= micropost_path(micropost) %>"><img src="<%= micropost_download_small_path(micropost) %>"></a>
       <%= micropost.content %>
     </p>
   <% else %>
@@ -22,4 +19,3 @@
     </p>
   <% end %>
 </section>
-

@@ -1,52 +1,125 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      <% if signed_in? %>
-        <% if current_user.group_id == 0 %>
-          <%= link_to "NEWS913", root_path, id: "logo"  %>
-        <% elsif current_user.group_id == 1 %>
-          <%= link_to "四中", root_path, id: "logo"  %>
-        <% elsif current_user.group_id == 2 then %>
-          <%= link_to "高専", root_path, id: "logo"  %>
-        <% elsif current_user.group_id == 3 then %>
-          <%= link_to "Ｐ大森", root_path, id: "logo"  %>
-        <% elsif current_user.group_id == 4 then %>
-          <%= link_to "亀山", root_path, id: "logo"  %>
-        <% end %>
+<header id="head">
+  <% if signed_in? %>
+    <% if content_for(:title) != nil %>
+      <% if current_user.group_id == 0 %>
+        <h1><%= link_to "NEWS913ホーム", root_path, id: "logo"  %></h1>
+      <% elsif current_user.group_id == 1 %>
+        <h1><%= link_to "四中ホーム", root_path, id: "logo"  %></h1>
+      <% elsif current_user.group_id == 2 then %>
+        <h1><%= link_to "高専ホーム", root_path, id: "logo"  %></h1>
+      <% elsif current_user.group_id == 3 then %>
+        <h1><%= link_to "Ｐ大森ホーム", root_path, id: "logo"  %></h1>
+      <% elsif current_user.group_id == 4 then %>
+        <h1><%= link_to "亀山ホーム", root_path, id: "logo"  %></h1>
       <% end %>
-      <nav>            
-        <ul class="nav pull-right">
-          <li><%= link_to "ホーム",      root_path %></li>
-          <% if signed_in? %>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                メニュー <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "お知らせ", articles_path %></li>
-                <% if current_user.family != "GUEST" %>
-                  <li><%= link_to "マイ一言", microposts_path %></li>
-                  <li><%= link_to "マイ写真", images_path %></li>
-                <% end %>
-                <li class="divider"></li>
-                <li><%= link_to "プロフィール", current_user %></li>
-                <% if current_user.admin? %>
-                  <li><%= link_to "お知らせ登録", new_article_path %></li>
-                  <li><%= link_to "全名簿", users_path %></li>
-                  <li><%= link_to "名簿追加", new_user_path %></li>
-                  <li><%= link_to "SJIS_CSV", csv_path %></li>
-                <% end %>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "サインアウト", signout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
+    <% else %>
+      <% if current_user.group_id == 0 %>
+        <h1><%= link_to "NEWS913ホーム", root_path, id: "logo_on"  %></h1>
+      <% elsif current_user.group_id == 1 %>
+        <h1><%= link_to "四中ホーム", root_path, id: "logo_on"  %></h1>
+      <% elsif current_user.group_id == 2 then %>
+        <h1><%= link_to "高専ホーム", root_path, id: "logo_on"  %></h1>
+      <% elsif current_user.group_id == 3 then %>
+        <h1><%= link_to "Ｐ大森ホーム", root_path, id: "logo_on"  %></h1>
+      <% elsif current_user.group_id == 4 then %>
+        <h1><%= link_to "亀山ホーム", root_path, id: "logo_on"  %></h1>
+      <% end %>
+    <% end %>    
+  <% else %>
+    <h1><%= link_to "ホーム", root_path, id: "logo_on"  %></h1>
+  <% end %>
+  <nav>
+    <ul>
+      <% if signed_in? %>
+        <li>
+          <% if content_for(:title) == "お知らせ一覧" || 
+                content_for(:title) == "お知らせ" || 
+                content_for(:title) == "お知らせ更新" %>
+            <%= link_to "お知らせ", articles_path, class: "on" %>
           <% else %>
-            <li><%= link_to "サインイン", signin_path %></li>
+            <%= link_to "お知らせ", articles_path %>
           <% end %>
-        </ul>
-      </nav>
-    </div>
-  </div>
+        </li>
+        <li>
+          <% if content_for(:title) == "文書一覧" || 
+                content_for(:title) == "文書変更" %>
+            <%= link_to "文書一覧", docs_path, class: "on" %>
+          <% else %>
+            <%= link_to "文書一覧", docs_path %>
+          <% end %>
+        </li>
+        <li><%= link_to "サインアウト", signout_path, method: "delete" %></li>
+      <% else %>
+        <li><%= link_to "サインイン", signin_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+
+  <% if signed_in? && current_user.family != "GUEST" %>
+    <nav>
+      <ul>
+        <li>
+          <% if content_for(:title) == "マイ一言" %>
+            <%= link_to "マイ一言", microposts_path, class: "on" %>
+          <% else %>
+            <%= link_to "マイ一言", microposts_path %>
+          <% end %>
+        </li>
+        <li>
+          <% if content_for(:title) == "マイ写真" %>
+            <%= link_to "マイ写真", images_path, class: "on" %>
+          <% else %>
+            <%= link_to "マイ写真", images_path %>
+          <% end %>
+        </li>
+        <li>
+          <% if content_for(:title) == "プロフィール" || 
+                content_for(:title) == "編集" %>
+            <%= link_to "プロフィール", current_user, class: "on" %>
+          <% else %>
+            <%= link_to "プロフィール", current_user %>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  <% end %>
+
+  <% if signed_in? && current_user.admin? %>
+    <nav>
+      <ul>
+        <li>
+          <% if content_for(:title) == "お知らせ登録" %>
+            <%= link_to "お知らせ登録", new_article_path, class: "on" %>
+          <% else %>
+            <%= link_to "お知らせ登録", new_article_path %>
+          <% end %>
+        </li>
+        <li>
+          <% if content_for(:title) == "文書登録" %>
+            <%= link_to "文書登録", new_doc_path, class: "on" %>
+          <% else %>
+            <%= link_to "文書登録", new_doc_path %>
+          <% end %>
+        </li>
+        <li>
+          <% if content_for(:title) == "全名簿" %>
+            <%= link_to "全名簿", users_path, class: "on" %>
+          <% else %>
+            <%= link_to "全名簿", users_path %>
+          <% end %>
+        </li>
+        <li>
+          <% if content_for(:title) == "名簿追加" %>
+            <%= link_to "名簿追加", new_user_path, class: "on" %>
+          <% else %>
+            <%= link_to "名簿追加", new_user_path %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "SJIS_CSV", csv_path %>
+        </li>
+      </ul>
+    </nav>
+  <% end %>
+
 </header>

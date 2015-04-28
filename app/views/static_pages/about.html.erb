@@ -2,27 +2,53 @@
 <article id="contents">
 <header class="head">
 <h1>サイト概要</h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
+
+<div class="main">
+<div id="aboutArea">
+
+<section class="first">
 <p>本サイトは「お知らせ」と「写真」を提示しております。<br/>
 表示はスマートフォン用に設定されておりますので、
 パソコンやタブレットでは見づらいかもしれませんがご容赦願います。</p>
-<dl>
-  <dt>ホーム</dt>
-    <dd>
-      サインイン前：「サインインページ」案内<br/>
-      サインイン後：「お知らせ・名簿」案内
-    </dd>
-  <dt>メニュー</dt>
-    <dd>
-      サインイン後のメニューを表示
-      <ul>
-        <li>お知らせ</li>
-        <li>プロフィール</li>
-        <li>サインアウト</li>
-      </uL>
-    </dd>
-  <dt>サイト概要</dt>
-    <dd>本ページ</dd>
-</dl>
+</section>
+<ul>
+  <li><span>ホーム</span></li>
+  <li>
+    <ul>
+      <li>サインイン前：サインインページ・案内</li>
+      <li>サインイン後：一言写真・案内</li>
+      <li>
+        <ul>
+          <li>ゲストユーザー</li>
+          <li>
+            <ul>
+              <li><span>お知らせ</span></li>
+              <li><span>文書一覧</span></li>
+              <li><span>サインアウト</span></li>
+            </ul>
+          </li>
+          <li>一般ユーザー</li>
+          <li>
+            <ul>
+              <li><span>マイ一言</span></li>
+              <li><span>マイ写真</span></li>
+              <li><span>プロフィール</span></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><span>ヘルプ</span></li>
+  <li>
+    <ul>
+      <li>機能概要・名簿案内</li>
+      <li>サインイン方法案内</li>
+    </ul>
+  </li>
+  <li><span>サイト概要:本ページ</span></li>
+</ul>
+</div>
+</div>
 </article>

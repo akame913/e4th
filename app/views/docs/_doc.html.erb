@@ -1,0 +1,19 @@
+<li>
+  <h3><%= doc.name %></h3>
+  <span>
+    <%= doc.user.name %>
+      | <%= link_to "保存", doc_download_path(doc) %>
+    <% if current_user?(doc.user) || current_user.admin? %>
+      | <%= link_to "編集", edit_doc_path(doc) %>
+      | <%= link_to "削除", doc, method: :delete,
+                                   data: { confirm: "本当に削除しますか?" },
+                                   title: doc.name %>
+    <% end %>
+  </span>
+
+  <section>
+    <p class='cf'>
+      <%=markdown(doc.description) %>
+    </p>
+   </section>    
+</li>

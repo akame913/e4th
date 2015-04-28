@@ -200,4 +200,12 @@ ja:
       given:  名
 
   site_title: お知らせと写真
+  
+  views:
+    pagination: 
+      first: "最初" 
+      previous_label: "« 前ページ" 
+      next_label: "次ページ »" 
+      last: "最後" 
+      truncate: "..."
 

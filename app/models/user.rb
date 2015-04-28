@@ -1,6 +1,7 @@
 # encoding: utf-8
 #require 'csv'
 class User < ActiveRecord::Base
+  has_many :docs
   has_many :microposts, dependent: :destroy
   has_many :images
   has_many :pictures

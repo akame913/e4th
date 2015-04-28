@@ -51,4 +51,12 @@ FactoryGirl.define do
     content "Lorem ipsum"
     user
   end
+
+  factory :doc do
+    name        "document Name"
+    description "document Description"
+    doc_type    "text/txt"
+    user
+  end    
+
 end

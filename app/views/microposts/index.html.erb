@@ -2,11 +2,12 @@
 <article id="contents">
 <header class="head">
 <h1>マイ一言</h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
+<div class="main">
 <div id="postArea">
-<%= will_paginate @microposts %>
+<%= will_paginate @microposts, previous_label: "前ページ", next_label: "次ページ" %>
   <%= render @microposts %>
-<%= will_paginate @microposts %>
+<%= will_paginate @microposts, previous_label: "前ページ", next_label: "次ページ" %>
+</div>
 </div>
 </article>

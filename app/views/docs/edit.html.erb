@@ -1,0 +1,29 @@
+<% provide(:title, '文書変更') %>
+<article id="contents">
+<header class="head">
+<h1>文書変更</h1>
+</header>
+<div class="main">
+
+<section class="form">
+  <%= form_for(@doc, 
+                html: {multipart: true}) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <dl class="formList">
+      <%= f.hidden_field :group_id, :value => current_user.group_id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+
+      <dt><%= f.label :description, "内容" %></dt>
+      <dd><%= f.text_area :description, rows: 6 %><dd>
+<!--
+      <dt><%= f.label :uploaded_doc, "文書選択" %></dt>
+      <dd><%= f.file_field :uploaded_doc %></dd>
+-->
+    </dl>
+    <p><%= f.submit "文書変更", class: "commonSubmit" %></p>
+  <% end %>
+</section>
+
+</div>
+</article>
+

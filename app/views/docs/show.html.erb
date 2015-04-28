@@ -1,0 +1,13 @@
+<% provide(:title, @doc.name) %>
+<article id="contents">
+<header class="head">
+<h1><%= @doc.name %></h1>
+</header>
+<div class="main">
+
+<div id="docArea">
+<p><%= markdown(@doc.description) %></p>
+</div>
+
+</div>
+</article>

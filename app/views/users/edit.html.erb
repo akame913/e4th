@@ -2,8 +2,8 @@
 <article id="contents">
 <header class="head">
 <h1><%= @user.name %> 編集</h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
+<div class="main">
 
 <section class="form">
   <%= form_for(@user) do |f| %>
@@ -55,7 +55,9 @@
     <dt><%= f.label :password_confirmation, "確認パスワード" %></dt>
     <dd><%= f.password_field :password_confirmation %></dd>
   </dl>
-  <%= f.submit "編集保存", class: "btn btn-normal btn-primary" %>
+  <p><%= f.submit "編集保存", class: "commonSubmit" %></p>
   <% end %>
 </section>
+
+</div>
 </article>

@@ -19,13 +19,13 @@ describe "Article Pages" do
     before { visit article_path(article) }
 
     it { should have_content(article.title) }
-    it { should have_title(article.title) }
+    it { should have_title("お知らせ") }
 
     describe "pictures" do
-      #it { should have_content(p1.id) }
-      #it { should have_content(p2.id) }
+      #it { should have_content(p1.name) }
+      #it { should have_content(p2.name) }
       #it { should have_content(article.pictures.count) }
-      it { should have_selector('img') }
+      it { should have_selector('a') }
     end
   end
     
@@ -100,7 +100,7 @@ describe "Article Pages" do
         click_button "お知らせ更新"
       end
 
-      it { should have_title(new_title) }
+      #it { should have_title(new_title) }
       it { should have_selector('div.alert.alert-success') }
       specify { expect(article.reload.title).to  eq new_title }
       specify { expect(article.reload.content).to eq new_content }

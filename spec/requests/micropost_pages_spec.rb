@@ -19,8 +19,8 @@ describe "Micropost pages" do
 
     describe "pagination" do
 
-      before(:all) { 10.times { FactoryGirl.create(:micropost, user: user, group_id: 1) } }
-      after(:all)  { Micropost.delete_all }
+      before(:each) { 10.times { FactoryGirl.create(:micropost, user: user, group_id: 1) } }
+      after(:each)  { Micropost.delete_all }
 
       #it { should have_selector('div.pagination') }
 

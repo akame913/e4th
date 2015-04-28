@@ -4,7 +4,11 @@
 <h1><%= @picture.image_file_name %></h1>
 <p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
+<div class="main">
+
 <div id="articleArea">
 <p><%= image_tag @picture.image.url(:original) %></p>
+</div>
+
 </div>
 </article>

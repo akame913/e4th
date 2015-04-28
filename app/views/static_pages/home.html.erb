@@ -1,68 +1,83 @@
-<article id="contents">
-
 <% if signed_in? %>
 
 <% if current_user.group_id == 0 %>
+<article id="contents">
 <header class="head">
 <h1>NEWS913</h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
+<div class="main">
+<div id="homeArea">
 <p>NEWS913ページにようこそ！<p>
 
-
 <% elsif current_user.group_id == 1 %>
+<article id="contents">
 <header class="head">
 <h1>荏原四中Ｓ４４年度卒同期会</h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
+<div class="main">
+<div id="homeArea">
 <p>荏原四中昭和４４年度卒同期会ページにようこそ！<p>
 
 <% elsif current_user.group_id == 2 then %>
+<article id="contents">
 <header class="head">
 <h1>都立高専１０期会</h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
+<div class="main">
+<div id="homeArea">
 <p>都立高専１０期会ページにようこそ！<p>
   
 <% elsif current_user.group_id == 3 then %>
+<article id="contents">
 <header class="head">
 <h1>パイオニア大森工場ＯＢ会</h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
+<div class="main">
+<div id="homeArea">
 <p>パイオニア大森工場ＯＢ会ページにようこそ！<p>
   
 <% elsif current_user.group_id == 4 then %>
+<article id="contents">
 <header class="head">
 <h1>亀山家族会</h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧へ", articles_path, class: "bluebtn" %></p>
 </header>
+<div class="main">
+<div id="homeArea">
 <p>亀山家族会ページにようこそ！<p>
 
 <% end %>
+
 <strong>使用方法・名簿</strong>などは<%= link_to "こちらのページへ",   help_path %>
+</div>
 <header class="head">
 <h1>一言写真</h1>
 </header>
 <div id="postArea">
-<%= will_paginate @microposts %>
+<%= will_paginate @microposts, previous_label: "前ページ", next_label: "次ページ" %>
   <%= render @microposts %>
-<%= will_paginate @microposts %>
+<%= will_paginate @microposts, previous_label: "前ページ", next_label: "次ページ" %>
 <% if current_user.family != "GUEST" %>
   <%= render 'shared/micropost_form' %>
 <% end %>
 </div>
+</article>
 
 <% else %>
+<article id="contents">
 <header class="head">
 <h1>ホーム</h1>
 </header>
+<div class="main">
+<div id="homeArea">
 <p>「お知らせ・写真」のサイトです。</p>
 <p class="warning">ご利用するにはサインインが必要です。</p>
 <p class="center">
 <%= link_to "サインインしてください!", signin_path, class: "btn btn-normal btn-primary" %>
 </p>
-<% end %>
+</div>
+</div>
 </article>
+<% end %>
 
 <script><!--
 $("p.warning").css( "color", "red" );

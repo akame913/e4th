@@ -16,6 +16,7 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
+    <div id="wrap">
     <%= render 'layouts/header' %>
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
@@ -23,5 +24,6 @@
       <%= yield %>
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
+    </div>
   </body>
 </html>

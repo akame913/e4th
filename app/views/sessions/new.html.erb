@@ -1,17 +1,19 @@
 <% provide(:title, "サインイン") %>
-<h1>サインイン</h1>
+<article id="contents">
+  <header class="head">
+    <h1>サインイン</h1>
+  </header>
 
-<div class="row-fluid">
-  <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
-      
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+  <section class="form">
+  <%= form_for(:session, url: sessions_path) do |f| %>
+    <dl class="formList">
+      <dt><%= f.label :name %></dt>
+      <dd><%= f.text_field :name %></dd>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.submit "サインイン", class: "btn btn-normal btn-primary" %>
-    <% end %>
-  </div>
-</div>
+      <dt><%= f.label :password %></dt>
+      <dd><%= f.password_field :password %></dd>
+    </dl>
+    <p><%= f.submit "サインイン", class: "commonSubmit" %></p>
+  <% end %>
+  </section>
+</article>

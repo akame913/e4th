@@ -2,7 +2,6 @@
 <article id="contents">
 <header class="head">
 <h1>名簿追加</h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
 
 <section class="form">
@@ -59,7 +58,7 @@
     <dt><%= f.label :password_confirmation, "確認パスワード" %></dt>
     <dd><%= f.password_field :password_confirmation %></dd>
   </dl>
-  <%= f.submit "名簿追加", class: "btn btn-normal btn-primary" %>
+  <p><%= f.submit "名簿追加", class: "commonSubmit" %></p>
   <% end %>
 </section>
 </article>

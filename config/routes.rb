@@ -3,6 +3,10 @@ E4th::Application.routes.draw do
     collection { post :import }
   end
 
+  resources :docs do
+    get :download
+  end
+  
   resources :microposts do
     get :download
     get :download_max

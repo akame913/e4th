@@ -3,6 +3,7 @@
 <header class="head">
 <h1>お知らせ更新</h1>
 </header>
+<div class="main">
 
 <section class="form">
   <%= form_for(@article) do |f| %>
@@ -17,7 +18,9 @@
       <dt><%= f.label :content, "内容" %></dt>
       <dd><%= f.text_area :content, rows: 6 %><dd>
     </dl>
-    <%= f.submit "お知らせ更新", class: "btn btn-normal btn-primary" %>
+    <p><%= f.submit "お知らせ更新", class: "commonSubmit" %></p>
   <% end %>
 </section>
+
+</div>
 </article>

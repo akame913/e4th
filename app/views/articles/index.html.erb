@@ -3,7 +3,10 @@
 <header class="head">
 <h1>お知らせ一覧</h1>
 </header>
-<ul class = "users">
+<div class="main">
+
+<div id="articleList">
+<ul >
   <% @articles.each do |article| %>
     <li>
       <%= link_to article.title, article %>
@@ -17,4 +20,7 @@
     </li>
   <% end %>
 </ul>
+</div>
+
+</div>
 </article>

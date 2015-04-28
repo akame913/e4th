@@ -1,9 +1,9 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, 'プロフィール') %>
 <article id="contents">
 <header class="head">
 <h1><%= @user.name %></h1>
-<p class="rightbtn"><%= link_to "お知らせ一覧", articles_path, class: "bluebtn" %></p>
 </header>
+<div class="main">
 
 <% if @user.group_id == 1 %>
   <p>荏原第四中学校S44年卒同期会にようこそ</p>
@@ -60,9 +60,11 @@
   </table>
   <br>
   <% if signed_in? && (current_user?(@user) || current_user.admin?) %>
-    <p class="center">
-      <%= link_to "編集", edit_user_path(@user), class: "btn btn-normal btn-primary" %>
+    <p>
+      <%= link_to "編集", edit_user_path(@user), class: "bluebtn" %>
     </p>
   <% end %>
 <% end %>
+
+</div>
 </article>
