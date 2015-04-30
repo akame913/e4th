@@ -3,6 +3,7 @@
   <header class="head">
     <h1>サインイン</h1>
   </header>
+  <div class="main">
 
   <section class="form">
   <%= form_for(:session, url: sessions_path) do |f| %>
@@ -16,4 +17,6 @@
     <p><%= f.submit "サインイン", class: "commonSubmit" %></p>
   <% end %>
   </section>
+
+  </div>
 </article>
